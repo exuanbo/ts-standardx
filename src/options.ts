@@ -5,7 +5,7 @@ import { version, bugs, homepage, dependencies } from '../package.json'
 
 const NAME = 'ts-standardx'
 const ENGINE = 'standard-engine'
-const EXTENSIONS = ['.js', '.jsx', '.mjs', '.cjs', 'ts', 'tsx']
+const EXTENSIONS = ['ts', 'tsx', '.js', '.jsx', '.mjs', '.cjs']
 
 interface Options extends LinterOptions {
   eslintConfig: {
