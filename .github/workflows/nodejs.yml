@@ -1,0 +1,32 @@
+name: Node.js CI
+
+on:
+  pull_request:
+    paths-ignore:
+      - '*.md'
+
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '*.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ['10', '12', '14']
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: yarn install
+
+      - run: yarn test
