@@ -1,6 +1,10 @@
+const prettierStandard = require('./.prettierrc.js')
+
 module.exports = {
-  extends: ['standard', 'prettier-standard'],
+  extends: ['standard', 'prettier', 'prettier/standard'],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
-  ignorePatterns: ['dist/**/*']
+  plugins: ['@typescript-eslint', 'prettier'],
+  rules: {
+    'prettier/prettier': ['error', prettierStandard]
+  }
 }
