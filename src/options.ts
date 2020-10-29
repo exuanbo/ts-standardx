@@ -5,8 +5,17 @@ import { version, bugs, homepage, dependencies } from '../package.json'
 
 const NAME = 'ts-standardx'
 const ENGINE = 'standard-engine'
+const EXTENSIONS = ['.js', '.jsx', '.mjs', '.cjs', 'ts', 'tsx']
 
-export const opts: LinterOptions = {
+interface Options extends LinterOptions {
+  eslintConfig: {
+    configFile: string
+    extensions: string[]
+    useEslintrc: boolean
+  }
+}
+
+export const opts: Options = {
   version: `${NAME} v${version} (${ENGINE} v${dependencies[ENGINE]})`,
   homepage: homepage,
   bugs: bugs.url,
@@ -15,6 +24,7 @@ export const opts: LinterOptions = {
   tagline: 'TypeScript Standard Style',
   eslintConfig: {
     configFile: path.join(__dirname, '..', '.eslintrc.js'),
+    extensions: EXTENSIONS,
     useEslintrc: true
   }
 }
