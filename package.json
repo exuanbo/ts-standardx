@@ -10,8 +10,8 @@
   ],
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "lint": ".",
-    "lint:fix": ". --fix",
+    "lint": "npx .",
+    "lint:fix": "npx . --fix",
     "test": "npm run lint && npm run build"
   },
   "repository": {
