@@ -6,7 +6,9 @@
   "bin": "bin/cmd.js",
   "files": [
     "bin",
-    "dist"
+    "dist",
+    ".eslintrc.js",
+    ".prettierrc.js"
   ],
   "scripts": {
     "build": "rimraf dist && rollup -c",
