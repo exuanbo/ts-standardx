@@ -1446,10 +1446,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-standard-engine@14.0.0:
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/standard-engine/-/standard-engine-14.0.0.tgz#dd0f2540e7ed18c095f8581e51f528057cc5c5b3"
-  integrity sha512-hRr5uixrRVBxSL6ayhwGi8HuiCmIifXjgsMwssOFZCCRRPofEOSGwDuiXHxdhmMqSyvAc4cS3HLfD2RKRBpz+g==
+standard-engine@14.0.1:
+  version "14.0.1"
+  resolved "https://registry.yarnpkg.com/standard-engine/-/standard-engine-14.0.1.tgz#fe568e138c3d9768fc59ff81001f7049908a8156"
+  integrity sha512-7FEzDwmHDOGva7r9ifOzD3BGdTbA7ujJ50afLVdW/tK14zQEptJjbFuUfn50irqdHDcTbNh0DTIoMPynMCXb0Q==
   dependencies:
     get-stdin "^8.0.0"
     minimist "^1.2.5"
