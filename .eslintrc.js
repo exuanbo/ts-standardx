@@ -1,22 +1,18 @@
 module.exports = {
-  extends: [
-    'standard',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'prettier/@typescript-eslint',
-    'prettier/standard'
-  ],
+  extends: ['standard', 'plugin:prettier/recommended', 'prettier/standard'],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['prettier'],
   rules: {
     'prettier/prettier': ['error', require('./.prettierrc.js')]
   },
   overrides: [
     {
-      files: ['**/*.js'],
-      rules: {
-        '@typescript-eslint/no-var-requires': 'off'
-      }
+      files: ['**/*.ts'],
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'prettier/@typescript-eslint'
+      ],
+      plugins: ['@typescript-eslint']
     }
   ]
 }
