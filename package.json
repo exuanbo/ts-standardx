@@ -47,6 +47,7 @@
     "@types/standard-engine": "12.0.1",
     "rimraf": "3.0.2",
     "rollup": "2.32.1",
+    "rollup-plugin-dts": "1.4.13",
     "tslib": "2.0.3",
     "typescript": "4.0.5"
   }
