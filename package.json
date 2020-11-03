@@ -3,6 +3,8 @@
   "version": "0.0.2",
   "description": "",
   "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "bin": "bin/cmd.js",
   "files": [
     "bin",
@@ -11,10 +13,13 @@
     ".prettierrc.js"
   ],
   "scripts": {
-    "build": "rimraf dist && rollup -c",
+    "clean": "rimraf dist .cache",
+    "dts": "tsc -d --emitDeclarationOnly --declarationDir .cache",
+    "bundle": "rollup -c",
+    "build": "yarn clean && yarn dts && yarn bundle",
     "lint": "npx .",
     "lint:fix": "npx . --fix",
-    "test": "npm run build && npm run lint"
+    "test": "yarn build && yarn lint"
   },
   "repository": {
     "type": "git",
