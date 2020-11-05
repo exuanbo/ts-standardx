@@ -1,6 +1,7 @@
 #!/usr/bin/env node
+'use strict'
 
 const { opts } = require('..')
-const { cli } = require('standard-engine')
+const { run } = require('standard-engine-ts')
 
-cli(opts)
+run(opts)
