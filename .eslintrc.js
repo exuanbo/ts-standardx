@@ -8,14 +8,9 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.ts'],
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        'prettier/@typescript-eslint'
-      ],
-      plugins: ['@typescript-eslint'],
-      rules: {
-        'no-useless-constructor': 'off',
-        '@typescript-eslint/no-useless-constructor': ['error']
+      extends: ['standard-with-typescript', 'prettier/@typescript-eslint'],
+      parserOptions: {
+        project: './tsconfig.json'
       }
     }
   ]
