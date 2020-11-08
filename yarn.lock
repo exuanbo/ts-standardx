@@ -1405,10 +1405,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-standard-engine-ts@0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/standard-engine-ts/-/standard-engine-ts-0.1.3.tgz#965138b2e1e9ffdf53fff4cbaac5cbefecac656e"
-  integrity sha512-hR9NqRFChg6e6+vXwWNgwKWb0m36bAGoxUA54/8x6KhqBvILnf+tFMrvBtcsgtgE0JYp592DtwF19nlG0IrTlg==
+standard-engine-ts@0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/standard-engine-ts/-/standard-engine-ts-0.1.4.tgz#5ce0fbd44af15872d22cf17d00bc09352a0eeb3e"
+  integrity sha512-HgK+gYJmfNTosR5qHpgG+YPxJSlNfNm/BfrSucUZYE3pxqEQC+iza+iqWSbVAQ6xaZtEeceks6TnfP4ZPwE5QQ==
   dependencies:
     "@types/eslint" "7.2.4"
     minimist "1.2.5"
