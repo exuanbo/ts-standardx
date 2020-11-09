@@ -19,7 +19,7 @@
     "build": "yarn clean && yarn dts && yarn bundle",
     "lint": "npx .",
     "lint:fix": "npx . --fix",
-    "test": "yarn build && yarn lint"
+    "test": "yarn build && yarn lint && jest --no-cache"
   },
   "repository": {
     "type": "git",
