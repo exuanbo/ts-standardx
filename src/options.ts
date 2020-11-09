@@ -1,6 +1,7 @@
 import path from 'path'
 import eslint from 'eslint'
 import { ProvidedOptions } from 'standard-engine-ts'
+import { getEslintrc } from './utils'
 import {
   name,
   version,
@@ -12,6 +13,8 @@ import {
 
 const ENGINE = 'standard-engine-ts'
 
+const eslintrc = getEslintrc()
+
 export const opts: ProvidedOptions = {
   cmd: name,
   version: `${version} (${ENGINE} v${dependencies[ENGINE]})`,
@@ -19,6 +22,9 @@ export const opts: ProvidedOptions = {
   homepage: homepage,
   bugs: bugs.url,
   eslint,
+  eslintOptions: {
+    baseConfig: (eslintrc !== undefined && require(eslintrc)) || undefined
+  },
   extensions: ['.ts'],
   useGitIgnore: true,
   configFile: path.join(__dirname, '..', '.eslintrc.js')
