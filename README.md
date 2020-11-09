@@ -3,8 +3,12 @@
 > Yet another customizable Standard for TypeScript.
 
 [![npm](https://img.shields.io/npm/v/ts-standardx.svg?style=flat-square)](https://www.npmjs.com/package/ts-standardx)
-[![David](https://img.shields.io/david/exuanbo/ts-standardx.svg?style=flat-square)](https://david-dm.org/exuanbo/ts-standardx)
+[![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/ts-standardx?style=flat-square)](https://libraries.io/npm/ts-standardx)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen?style=flat-square)](https://renovatebot.com/)
+
+## Description
+
+Todo
 
 ## Install
 
@@ -12,14 +16,24 @@
 npm install --save-dev ts-standardx
 ```
 
-## Usage
+## CLI
+
+Lint using ESLint.
 
 ```sh
-$ npx ts-standardx --help
+npx ts-standardx
 ```
 
+Fix and format using ESLint and Prettier.
+
+```sh
+npx ts-standardx --fix
 ```
-ts-standardx: TypeScript Standard Style (https://github.com/exuanbo/ts-standardx#readme)
+
+### Help
+
+```
+ts-standardx: Yet another customizable Standard for TypeScript. (https://github.com/exuanbo/ts-standardx#readme)
 
 usage: ts-standardx <flags> [FILES...]
 
@@ -44,10 +58,69 @@ Advanced:
   --parser       Use custom js parser (e.g. babel-eslint)
 ```
 
+## API
+
+Todo
+
+## Details
+
+This package includes:
+
+- @typescript-eslint/eslint-plugin
+- @typescript-eslint/parser
+- eslint
+- eslint-config-prettier
+- eslint-config-standard
+- eslint-config-standard-with-typescript
+- eslint-plugin-import
+- eslint-plugin-node
+- eslint-plugin-prettier
+- eslint-plugin-promise
+- eslint-plugin-standard
+- prettier
+- [standard-engine-ts](https://github.com/exuanbo/standard-engine-ts#readme)
+
+```js
+// .eslintrc.js
+
+module.exports = {
+  extends: ['standard', 'plugin:prettier/recommended', 'prettier/standard'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['prettier'],
+  rules: {
+    'prettier/prettier': ['error', require('./.prettierrc.js')]
+  },
+  overrides: [
+    {
+      files: ['**/*.ts'],
+      extends: ['standard-with-typescript', 'prettier/@typescript-eslint'],
+      parserOptions: {
+        project: './tsconfig.json'
+      }
+    }
+  ]
+}
+```
+
+```js
+// .prettierrc.js
+
+module.exports = {
+  arrowParens: 'avoid',
+  bracketSpacing: true,
+  jsxBracketSameLine: true,
+  semi: false,
+  singleQuote: true,
+  tabWidth: 2,
+  trailingComma: 'none'
+}
+```
+
 ## Todo
 
 - [ ] Unit testing
-- [ ] Documentation
+- [ ] Detailed Documentation
+- [ ] Better intergration with Prettier
 
 ## License
 
