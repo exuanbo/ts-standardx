@@ -60,7 +60,18 @@ Advanced:
 
 ## API
 
-Todo
+```ts
+// index.d.ts
+
+import { ProvidedOptions, Linter, CLI } from 'standard-engine-ts'
+
+declare const opts: ProvidedOptions
+
+declare const linter: Linter
+declare const cli: CLI
+
+export { cli, linter, opts }
+```
 
 ## Details
 
