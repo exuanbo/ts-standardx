@@ -19,7 +19,7 @@ module.exports = {
       files: ['**/*.ts'],
       extends: ['standard-with-typescript', 'prettier/@typescript-eslint'],
       parserOptions: {
-        project: getTsconfig() ?? './tsconfig.json'
+        project: getTsconfig() || './tsconfig.json'
       }
     }
   ]
