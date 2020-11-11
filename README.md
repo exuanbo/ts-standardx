@@ -140,6 +140,7 @@ module.exports = {
 
 - [ ] Unit testing
 - [ ] Detailed Documentation
+- [ ] Make Output colorful and pretty
 - [ ] Better intergration with Prettier
 
 ## License
