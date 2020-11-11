@@ -1,11 +1,9 @@
-import path from 'path'
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { getEslintrc } from '../src/utils'
 
-const cwd = process.cwd()
-
 describe('getEslintrc', () => {
-  it('should return eslintrc path', () => {
+  it('should return eslintrc', () => {
     const eslintrc = getEslintrc()
-    expect(eslintrc).toBe(path.join(cwd, '.eslintrc.js'))
+    expect(eslintrc).toBe(require('../.eslintrc.js'))
   })
 })

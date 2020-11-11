@@ -23,9 +23,9 @@ export const opts: ProvidedOptions = {
   bugs: bugs.url,
   eslint,
   eslintOptions: {
-    baseConfig: (eslintrc !== undefined && require(eslintrc)) || undefined
+    baseConfig: eslintrc
   },
   extensions: ['.ts'],
   useGitIgnore: true,
-  configFile: path.join(__dirname, '..', '.eslintrc.js')
+  configFile: path.join(__dirname, '../.eslintrc.js')
 }
