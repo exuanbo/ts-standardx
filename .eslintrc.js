@@ -17,6 +17,7 @@ module.exports = {
     'prettier/standard'
   ],
   parser: '@typescript-eslint/parser',
+  plugins: ['prettier'],
   rules: {
     'prettier/prettier': ['error', require('./.prettierrc.js')]
   },
