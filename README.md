@@ -73,6 +73,19 @@ declare const cli: CLI
 export { cli, linter, opts }
 ```
 
+## IDE extension
+
+Install the official `eslint` extension and add an config file as example below.
+
+```js
+// .eslintrc.js
+
+module.exports = {
+  ...require('ts-standardx/.eslintrc.js'),
+  // Your other customization
+}
+```
+
 ## Details
 
 This package includes:
