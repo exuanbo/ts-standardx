@@ -20,11 +20,6 @@ module.exports = {
   rules: {
     'prettier/prettier': ['error', require('./.prettierrc.js')]
   },
-  settings: {
-    react: {
-      version: 'detect'
-    }
-  },
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
