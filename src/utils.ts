@@ -17,9 +17,10 @@ export const getEslintrc = (): Record<string, unknown> | undefined => {
 
   if (eslintrcList.length > 0) {
     const eslintrc = require(eslintrcList[0])
-    if (JSON.stringify(eslintrc).search(/ts-standardx\/\.eslintrc\.js/) < 0) {
-      return eslintrc
-    }
+    const eslintrcStr = JSON.stringify(eslintrc)
+    return JSON.parse(
+      eslintrcStr.replace(/require\('ts-standardx\/\.eslintrc\.js'\)/, '{}')
+    )
   }
   return undefined
 }
