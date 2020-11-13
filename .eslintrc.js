@@ -8,15 +8,26 @@ const getTsconfig = () => {
 }
 
 module.exports = {
-  extends: ['standard', 'plugin:prettier/recommended', 'prettier/standard'],
+  extends: [
+    'standard',
+    'standard-jsx',
+    'plugin:react/recommended',
+    'plugin:prettier/recommended',
+    'prettier/react',
+    'prettier/standard'
+  ],
   parser: '@typescript-eslint/parser',
-  plugins: ['prettier'],
   rules: {
     'prettier/prettier': ['error', require('./.prettierrc.js')]
   },
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   overrides: [
     {
-      files: ['**/*.ts'],
+      files: ['**/*.ts', '**/*.tsx'],
       extends: ['standard-with-typescript', 'prettier/@typescript-eslint'],
       parserOptions: {
         project: getTsconfig() || './tsconfig.json'
