@@ -1,10 +1,11 @@
-const { existsSync } = require('fs')
-const { join } = require('path')
-const rootPath = require('standard-engine-ts').getRootPath()
+const fs = require('fs')
+const path = require('path')
+const { getRootPath } = require('standard-engine-ts')
 
 const getTsconfig = () => {
-  const filePath = join(rootPath, 'tsconfig.json')
-  return (existsSync(filePath) && filePath) || undefined
+  const rootPath = getRootPath()
+  const filePath = path.join(rootPath, 'tsconfig.json')
+  return (fs.existsSync(filePath) && filePath) || undefined
 }
 
 module.exports = {
