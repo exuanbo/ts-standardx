@@ -97,11 +97,13 @@ This package includes:
 - eslint
 - eslint-config-prettier
 - eslint-config-standard
+- eslint-config-standard-jsx
 - eslint-config-standard-with-typescript
 - eslint-plugin-import
 - eslint-plugin-node
 - eslint-plugin-prettier
 - eslint-plugin-promise
+- eslint-plugin-react
 - eslint-plugin-standard
 - prettier
 - [standard-engine-ts](https://github.com/exuanbo/standard-engine-ts#readme)
