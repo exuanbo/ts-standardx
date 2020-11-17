@@ -4249,10 +4249,10 @@ stack-utils@^2.0.2:
   dependencies:
     escape-string-regexp "^2.0.0"
 
-standard-engine-ts@0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/standard-engine-ts/-/standard-engine-ts-0.2.2.tgz#87c7d9869b55f3a55194824aa7ca0b8fd3432088"
-  integrity sha512-okMGN7ipk/UqxRbu5dq5JgXOXKkC8Yx/6DCHbHfycqV6Do2CtTLaxkSfDL2+7kSFMjCUsP/8azKQoDo0CooA3w==
+standard-engine-ts@0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/standard-engine-ts/-/standard-engine-ts-0.2.3.tgz#c7cc835ca4e699ed522d5501c7fc42ce4616592b"
+  integrity sha512-Ym4687B+YA35yAOjDk1CK0BeSIJnoepcyngj5RUhrKh+CZthO7i/3INHYJ/hWcGNKBYfXMlvooTx0O0VKxuu0Q==
   dependencies:
     "@types/eslint" "7.2.5"
     minimist "1.2.5"

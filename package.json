@@ -55,7 +55,7 @@
     "eslint-plugin-react": "7.21.5",
     "eslint-plugin-standard": "4.1.0",
     "prettier": "2.1.2",
-    "standard-engine-ts": "0.2.2"
+    "standard-engine-ts": "0.2.3"
   },
   "devDependencies": {
     "@rollup/plugin-json": "4.1.0",
