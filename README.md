@@ -75,7 +75,7 @@ export { cli, linter, opts }
 
 ## IDE extension
 
-Install the official `eslint` extension and add a config file as example below.
+Install the official `eslint` extension, then add a config file as example below.
 
 ```js
 // .eslintrc.js
@@ -84,7 +84,7 @@ const { mergeObj } = require('standard-engine-ts')
 const baseConfig = require('ts-standardx/.eslintrc.js')
 
 module.exports = mergeObj(baseConfig, {
-  // Your other customization
+  // Your other customizations
 })
 ```
 
