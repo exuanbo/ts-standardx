@@ -17,18 +17,23 @@ module.exports = {
     'prettier/react',
     'prettier/standard'
   ],
-  parser: '@typescript-eslint/parser',
-  plugins: ['prettier'],
-  rules: {
-    'prettier/prettier': ['error', require('./.prettierrc.js')]
-  },
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
       extends: ['standard-with-typescript', 'prettier/@typescript-eslint'],
       parserOptions: {
-        project: getTsconfig() || './tsconfig.json'
+        project: getTsconfig() || path.join(__dirname, './tsconfig.json')
       }
     }
-  ]
+  ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['prettier'],
+  rules: {
+    'prettier/prettier': ['error', require('./.prettierrc.js')]
+  },
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  }
 }
