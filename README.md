@@ -1,4 +1,4 @@
-# ts-standardx [WIP]
+# ts-standardx
 
 > Yet another customizable Standard for TypeScript.
 
@@ -130,20 +130,24 @@ module.exports = {
     'prettier/react',
     'prettier/standard'
   ],
+  overrides: [
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      extends: [
+        'standard-with-typescript',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'prettier/@typescript-eslint'
+      ],
+      parserOptions: {
+        project: getTsconfig()
+      }
+    }
+  ],
   parser: '@typescript-eslint/parser',
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': ['error', require('./.prettierrc.js')]
-  },
-  overrides: [
-    {
-      files: ['**/*.ts', '**/*.tsx'],
-      extends: ['standard-with-typescript', 'prettier/@typescript-eslint'],
-      parserOptions: {
-        project: getTsconfig() || './tsconfig.json'
-      }
-    }
-  ]
+  }
 }
 ```
 
