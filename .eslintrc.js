@@ -20,9 +20,13 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
-      extends: ['standard-with-typescript', 'prettier/@typescript-eslint'],
+      extends: [
+        'standard-with-typescript',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'prettier/@typescript-eslint'
+      ],
       parserOptions: {
-        project: getTsconfig() || path.join(__dirname, './tsconfig.json')
+        project: getTsconfig()
       }
     }
   ],
