@@ -4,6 +4,6 @@ import { getEslintrc } from '../src/utils'
 describe('getEslintrc', () => {
   it('should return eslintrc', () => {
     const eslintrc = getEslintrc()
-    expect(eslintrc).toEqual(require('../.eslintrc.js'))
+    expect(eslintrc).toStrictEqual(require('../.eslintrc.js'))
   })
 })
