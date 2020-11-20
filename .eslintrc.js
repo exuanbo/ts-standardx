@@ -30,7 +30,6 @@ module.exports = {
       }
     }
   ],
-  parser: 'espree',
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': ['error', require('./.prettierrc.js')]
