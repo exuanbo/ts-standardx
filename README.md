@@ -1,36 +1,73 @@
 # ts-standardx
 
-> Yet another customizable Standard for TypeScript.
+> Yet another customizable linter for TypeScript and JavaScript.
 
 [![npm](https://img.shields.io/npm/v/ts-standardx.svg?style=flat-square)](https://www.npmjs.com/package/ts-standardx)
 [![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/ts-standardx?style=flat-square)](https://libraries.io/npm/ts-standardx)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen?style=flat-square)](https://renovatebot.com/)
 
-## Description
+## 🤩 Highlights
 
 Todo
 
-## Install
+## 💾 Install
 
 ```sh
 npm install --save-dev ts-standardx
 ```
 
-## CLI
+## 🛠 IDE extension
 
-Lint using ESLint.
+Install the official `eslint` extension, then add a config file in the project root directory as example below. Your custom config will be deeply merged into the base `.eslintrc.js` (See [#Details](##.eslintrc.js)).
 
-```sh
-npx ts-standardx
+```js
+// .eslintrc.js
+
+const { mergeObj } = require('standard-engine-ts')
+const baseConfig = require('ts-standardx/.eslintrc.js')
+
+module.exports = mergeObj(baseConfig, {
+  // Your other customizations
+})
 ```
 
-Fix and format using ESLint and Prettier.
+## 🤖 CLI
 
 ```sh
-npx ts-standardx --fix
+$ npx ts-standardx
 ```
 
-### Help
+To enable auto fix and format, use `--fix`.
+
+```sh
+$ npx ts-standardx --fix
+```
+
+To lint text from stdin, use `-` or `--stdin`.
+
+```sh
+$ echo "const salute = ( ) => 'hi'" | npx ts-standardx -
+```
+
+```
+ts-standardx: Yet another customizable Standard for TypeScript. (https://github.com/exuanbo/ts-standardx#readme)
+
+  Run `ts-standardx --fix` to automatically fix some problems.
+
+  <text>:1:19: Delete `·`
+```
+
+Add `--fix` to output fixed text.
+
+```sh
+$ echo "const salute = ( ) => 'hi'" | npx ts-standardx - --fix
+```
+
+```
+export const a = () => 'hello'
+```
+
+### --help
 
 ```
 ts-standardx: Yet another customizable Standard for TypeScript. (https://github.com/exuanbo/ts-standardx#readme)
@@ -58,7 +95,7 @@ Advanced:
   --parser       Use custom js parser (e.g. babel-eslint)
 ```
 
-## API
+## ⌨️ API
 
 ```ts
 // index.d.ts
@@ -73,22 +110,7 @@ declare const cli: CLI
 export { cli, linter, opts }
 ```
 
-## IDE extension
-
-Install the official `eslint` extension, then add a config file as example below.
-
-```js
-// .eslintrc.js
-
-const { mergeObj } = require('standard-engine-ts')
-const baseConfig = require('ts-standardx/.eslintrc.js')
-
-module.exports = mergeObj(baseConfig, {
-  // Your other customizations
-})
-```
-
-## Details
+## 🔎 Details
 
 This package includes:
 
@@ -108,9 +130,9 @@ This package includes:
 - prettier
 - [standard-engine-ts](https://github.com/exuanbo/standard-engine-ts#readme)
 
-```js
-// .eslintrc.js
+### .eslintrc.js
 
+```js
 const fs = require('fs')
 const path = require('path')
 const { getRootPath } = require('standard-engine-ts')
@@ -138,12 +160,13 @@ module.exports = {
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'prettier/@typescript-eslint'
       ],
+      parser: '@typescript-eslint/parser',
       parserOptions: {
         project: getTsconfig()
       }
     }
   ],
-  parser: '@typescript-eslint/parser',
+  parser: 'espree',
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': ['error', require('./.prettierrc.js')]
@@ -151,9 +174,9 @@ module.exports = {
 }
 ```
 
-```js
-// .prettierrc.js
+### .prettierrc.js
 
+```js
 module.exports = {
   arrowParens: 'avoid',
   bracketSpacing: true,
@@ -165,10 +188,14 @@ module.exports = {
 }
 ```
 
-## Todo
+## 🤔 Why
+
+Todo
+
+## 📃 Todo
 
 - [ ] Unit testing
-- [ ] Detailed Documentation
+- [ ] Documentation
 - [ ] Make Output colorful and pretty
 - [ ] Better intergration with Prettier
 
