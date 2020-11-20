@@ -18,7 +18,7 @@ npm install --save-dev ts-standardx
 
 ## 🛠 IDE extension
 
-Install the official `eslint` extension, then add a config file in the project root directory as example below. Your custom config will be deeply merged into the base `.eslintrc.js` (See [#Details](##.eslintrc.js)).
+Install the official `eslint` extension, then add a config file in the project root directory as example below. Your custom config will be [deeply merged](https://github.com/exuanbo/standard-engine-ts/blob/main/src/utils.ts#L83) into the base `.eslintrc.js` (See [#Details](#eslintrcjs)).
 
 ```js
 // .eslintrc.js
@@ -27,9 +27,11 @@ const { mergeObj } = require('standard-engine-ts')
 const baseConfig = require('ts-standardx/.eslintrc.js')
 
 module.exports = mergeObj(baseConfig, {
-  // Your other customizations
+  // Your custom config
 })
 ```
+
+If you don't like being blamed while coding 🤯, there is no need to use `mergeObj(baseConfig, {})`. Just write your ESLint config as usual and it will be merged automatically.
 
 ## 🤖 CLI
 
@@ -49,6 +51,9 @@ To lint text from stdin, use `-` or `--stdin`.
 $ echo "const salute = ( ) => 'hi'" | npx ts-standardx -
 ```
 
+<details><summary style="margin-left:0.125em;">output</summary>
+<p>
+
 ```
 ts-standardx: Yet another customizable Standard for TypeScript. (https://github.com/exuanbo/ts-standardx#readme)
 
@@ -57,15 +62,26 @@ ts-standardx: Yet another customizable Standard for TypeScript. (https://github.
   <text>:1:19: Delete `·`
 ```
 
+</p>
+</details>
+
+<br>
+
 Add `--fix` to output fixed text.
 
 ```sh
 $ echo "const salute = ( ) => 'hi'" | npx ts-standardx - --fix
 ```
 
+<details><summary style="margin-left:0.125em;">output</summary>
+<p>
+
 ```
 export const a = () => 'hello'
 ```
+
+</p>
+</details>
 
 ### --help
 
@@ -195,7 +211,7 @@ Todo
 
 - [ ] Unit testing
 - [ ] Documentation
-- [ ] Make Output colorful and pretty
+- [ ] Prettier output
 - [ ] Better intergration with Prettier
 
 ## License
