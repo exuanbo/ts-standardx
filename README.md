@@ -1,12 +1,20 @@
-# ts-standardx
+<p align="center">
+<img src="./logo.svg">
+</p>
 
+<p align="center">
 > Yet another customizable linter for TypeScript and JavaScript.
+</p>
+<p align="center">
+<a href="https://www.npmjs.com/package/ts-standardx">
+<img src="https://img.shields.io/npm/v/ts-standardx">
+</a>
+<a href="https://libraries.io/npm/ts-standardx">
+<img src="https://img.shields.io/librariesio/release/npm/ts-standardx?label=deps">
+</a>
+</p>
 
-[![npm](https://img.shields.io/npm/v/ts-standardx.svg?style=flat-square)](https://www.npmjs.com/package/ts-standardx)
-[![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/ts-standardx?style=flat-square)](https://libraries.io/npm/ts-standardx)
-[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen?style=flat-square)](https://renovatebot.com/)
-
-## 🤩 Highlights
+## 🚀 Features
 
 Todo
 
