@@ -3,8 +3,7 @@ const path = require('path')
 const { getRootPath } = require('standard-engine-ts')
 
 const getTsconfig = () => {
-  const rootPath = getRootPath()
-  const filePath = path.join(rootPath, 'tsconfig.json')
+  const filePath = path.join(getRootPath(), 'tsconfig.json')
   return (fs.existsSync(filePath) && filePath) || undefined
 }
 
