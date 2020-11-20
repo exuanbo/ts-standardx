@@ -25,12 +25,13 @@ module.exports = {
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'prettier/@typescript-eslint'
       ],
+      parser: '@typescript-eslint/parser',
       parserOptions: {
         project: getTsconfig()
       }
     }
   ],
-  parser: '@typescript-eslint/parser',
+  parser: 'espree',
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': ['error', require('./.prettierrc.js')]
