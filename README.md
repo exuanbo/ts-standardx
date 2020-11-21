@@ -1,6 +1,6 @@
-<p id="logo" align="center">
+<h1 id="logo" align="center">
 <a href="#logo"><img src="./logo.svg"></a>
-</p>
+</h1>
 
 <p align="center">
 > Yet another customizable linter for TypeScript and JavaScript.
@@ -60,7 +60,7 @@ To lint text from stdin, use `-` or `--stdin`.
 $ echo "const salute = ( ) => 'hi'" | npx ts-standardx -
 ```
 
-<details><summary style="margin-left:0.125em;">output</summary>
+<details><summary>output</summary>
 <p>
 
 ```
@@ -82,7 +82,7 @@ Add `--fix` to output fixed text.
 $ echo "const salute = ( ) => 'hi'" | npx ts-standardx - --fix
 ```
 
-<details><summary style="margin-left:0.125em;">output</summary>
+<details><summary>output</summary>
 <p>
 
 ```
