@@ -1,10 +1,11 @@
 <p align="center">
-<img src="./logo.svg">
+<a href="#"><img src="./logo.svg"></a>
 </p>
 
 <p align="center">
 > Yet another customizable linter for TypeScript and JavaScript.
 </p>
+
 <p align="center">
 <a href="https://www.npmjs.com/package/ts-standardx">
 <img src="https://img.shields.io/npm/v/ts-standardx">
