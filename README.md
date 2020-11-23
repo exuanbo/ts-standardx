@@ -36,11 +36,15 @@ const { mergeObj } = require('standard-engine-ts')
 const baseConfig = require('ts-standardx/.eslintrc.js')
 
 module.exports = mergeObj(baseConfig, {
-  // Your custom config
+  /* Your custom config */
 })
+
+// Or simply use the default config
+
+module.exports = require('ts-standardx/.eslintrc.js')
 ```
 
-If you don't like being blamed while coding 🤯, there is no need to use `mergeObj(baseConfig, {})`. Just write your ESLint config as usual and it will be merged automatically.
+If you don't like being blamed while coding 🤯, there is no need to export `require('ts-standardx/.eslintrc.js')`. Just write your ESLint config as usual and it will be merged automatically.
 
 ## 🤖 CLI
 
@@ -190,7 +194,6 @@ module.exports = {
       }
     }
   ],
-  parser: 'espree',
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': ['error', require('./.prettierrc.js')]
@@ -218,6 +221,7 @@ Todo
 
 ## 📃 Todo
 
+- [ ] Remove dependency `eslint-config-standard-with-typescript`
 - [ ] Unit testing
 - [ ] Documentation
 - [ ] Prettier output
