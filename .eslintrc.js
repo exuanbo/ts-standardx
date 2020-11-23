@@ -2,9 +2,9 @@ const path = require('path')
 
 module.exports = {
   extends: [
+    'plugin:react/recommended',
     'standard',
     'standard-jsx',
-    'plugin:react/recommended',
     'plugin:prettier/recommended',
     'prettier/react',
     'prettier/standard'
@@ -13,7 +13,6 @@ module.exports = {
     {
       files: ['**/*.ts', '**/*.tsx'],
       extends: [
-        'standard-with-typescript',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'prettier/@typescript-eslint'
