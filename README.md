@@ -149,13 +149,11 @@ This package includes:
 - eslint-config-prettier
 - eslint-config-standard
 - eslint-config-standard-jsx
-- eslint-config-standard-with-typescript
 - eslint-plugin-import
 - eslint-plugin-node
 - eslint-plugin-prettier
 - eslint-plugin-promise
 - eslint-plugin-react
-- eslint-plugin-standard
 - prettier
 - [standard-engine-ts](https://github.com/exuanbo/standard-engine-ts#readme)
 
@@ -166,9 +164,9 @@ const path = require('path')
 
 module.exports = {
   extends: [
+    'plugin:react/recommended',
     'standard',
     'standard-jsx',
-    'plugin:react/recommended',
     'plugin:prettier/recommended',
     'prettier/react',
     'prettier/standard'
@@ -177,7 +175,6 @@ module.exports = {
     {
       files: ['**/*.ts', '**/*.tsx'],
       extends: [
-        'standard-with-typescript',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'prettier/@typescript-eslint'
@@ -215,7 +212,6 @@ Todo
 
 ## 📃 Todo
 
-- [ ] Remove dependency `eslint-config-standard-with-typescript`
 - [ ] Unit testing
 - [ ] Documentation
 - [ ] Prettier output
