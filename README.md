@@ -162,14 +162,7 @@ This package includes:
 ### .eslintrc.js
 
 ```js
-const fs = require('fs')
 const path = require('path')
-const { getRootPath } = require('standard-engine-ts')
-
-const getTsconfig = () => {
-  const filePath = path.join(getRootPath(), 'tsconfig.json')
-  return (fs.existsSync(filePath) && filePath) || undefined
-}
 
 module.exports = {
   extends: [
@@ -185,12 +178,13 @@ module.exports = {
       files: ['**/*.ts', '**/*.tsx'],
       extends: [
         'standard-with-typescript',
+        'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'prettier/@typescript-eslint'
       ],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: getTsconfig()
+        project: path.join(process.cwd(), 'tsconfig.json')
       }
     }
   ],
