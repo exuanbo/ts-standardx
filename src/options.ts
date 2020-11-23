@@ -26,6 +26,5 @@ export const opts: ProvidedOptions = {
     baseConfig: eslintrc
   },
   extensions: ['.ts', '.tsx'],
-  useGitIgnore: true,
   configFile: path.join(__dirname, '../.eslintrc.js')
 }
