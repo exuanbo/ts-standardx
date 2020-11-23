@@ -99,29 +99,34 @@ export const a = () => 'hello'
 ### --help
 
 ```
-ts-standardx: Yet another customizable Standard for TypeScript. (https://github.com/exuanbo/ts-standardx#readme)
+ts-standardx: Yet another customizable linter for TypeScript and JavaScript. (https://github.com/exuanbo/ts-standardx#readme)
 
-usage: ts-standardx <flags> [FILES...]
+Usage: ts-standardx <flags> [FILES...]
 
-  If FILES is omitted, all source files (*.js, *.jsx, *.mjs, *.cjs, *.ts)
+  If FILES is omitted, all source files (*.ts, *.tsx, *.js, *.jsx, *.mjs, *.cjs)
   in the current working directory will be checked recursively.
 
-  Certain paths dist/, coverage/, files/folders that begin with '.'
-  like .git/ and paths in the project's root .gitignore are ignored by default.
+  By default, files/folders that begin with '.' like .eslintrc .cache/
+  and paths in the project's root .gitignore are automatically ignored.
 
 Basic:
-  --fix          Automatically fix problems
-  --verbose      Show rule names for errors (to ignore specific rules)
-  -v, --version  Show current version
-  -h, --help     Show usage information
+  --fix                Automatically fix problems
+  --verbose            Show rule names for errors (to ignore specific rules)
 
-Advanced:
-  --stdin        Read file text from stdin
-  --ext          Specify JavaScript file extensions
-  --global       Declare global variable
-  --plugin       Use custom eslint plugin
-  --env          Use custom eslint environment
-  --parser       Use custom js parser (e.g. babel-eslint)
+Config:
+  --env                Use custom eslint environment
+  --ext                Specify file extensions
+  --global             Declare global variable
+  --parser             Use custom parser (e.g. babel-eslint)
+  --plugin             Use custom eslint plugin
+
+Input:
+  --stdin              Read file text from stdin
+  --disable-gitignore  Disable use of .gitignore by default
+
+Misc:
+  -h, --help           Show usage information
+  -v, --version        Show current version
 ```
 
 ## ⌨️ API
