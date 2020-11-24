@@ -32,7 +32,7 @@ const RULES_MAP: Array<ruleName | [ruleName, typescriptRuleName]> = [
   'space-infix-ops'
 ]
 
-export const compatRules: Linter.Config['rules'] = {
+export const compatRules: Partial<Linter.RulesRecord> = {
   'no-undef': 'off',
   camelcase: 'off',
 
