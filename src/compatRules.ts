@@ -2,12 +2,12 @@ import { Linter } from 'eslint'
 import { rules } from 'eslint-config-standard/eslintrc.json'
 
 type RuleName = keyof typeof rules
-type TypescriptRuleName = `@typescript-eslint/${string}`
+type RuleEntry = typeof rules[RuleName]
 
 /**
  * @link https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
  */
-const RULES_MAP: Array<RuleName | [RuleName, TypescriptRuleName]> = [
+const RULES_MAP: RuleName[] = [
   'brace-style',
   'comma-spacing',
   'func-call-spacing',
@@ -54,20 +54,9 @@ export const compatRules: Partial<Linter.RulesRecord> = {
   ],
 
   ...Object.fromEntries(
-    RULES_MAP.map((rule): [
-      [RuleName, 'off'],
-      [TypescriptRuleName, unknown]
-    ] => {
-      if (Array.isArray(rule)) {
-        return [
-          [rule[0], 'off'],
-          [rule[1], rules[rule[0]]]
-        ]
-      }
-      return [
-        [rule, 'off'],
-        [`@typescript-eslint/${rule}` as TypescriptRuleName, rules[rule]]
-      ]
-    }).flat()
+    RULES_MAP.map((rule): [[RuleName, 'off'], [string, RuleEntry]] => [
+      [rule, 'off'],
+      [`@typescript-eslint/${rule}`, rules[rule]]
+    ]).flat()
   )
 }
