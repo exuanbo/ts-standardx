@@ -1,5 +1,6 @@
 import path from 'path'
 import { compatRules } from './compatRules'
+import { rules } from './rules'
 
 const PRETTIER_STANDARD = {
   arrowParens: 'avoid',
@@ -30,7 +31,10 @@ export default {
       parserOptions: {
         project: path.join(process.cwd(), 'tsconfig.json')
       },
-      rules: compatRules
+      rules: {
+        ...compatRules,
+        ...rules
+      }
     }
   ],
   plugins: ['prettier'],
