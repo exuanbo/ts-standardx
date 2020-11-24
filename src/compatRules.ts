@@ -11,7 +11,6 @@ const RULES_MAP: Array<ruleName | [ruleName, typescriptRuleName]> = [
   'brace-style',
   'comma-spacing',
   'func-call-spacing',
-  'indent',
   'keyword-spacing',
   'lines-between-class-members',
   'no-array-constructor',
