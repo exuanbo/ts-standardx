@@ -15,7 +15,6 @@ const RULES_MAP: Array<RuleName | [RuleName, TypescriptRuleName]> = [
   'lines-between-class-members',
   'no-array-constructor',
   'no-dupe-class-members',
-  ['import/no-duplicates', '@typescript-eslint/no-duplicate-imports'],
   'no-extra-parens',
   'no-implied-eval',
   'no-loss-of-precision',
@@ -35,6 +34,8 @@ export const compatRules: Partial<Linter.RulesRecord> = {
 
   'dot-notation': 'off',
   '@typescript-eslint/dot-notation': 'error',
+
+  '@typescript-eslint/no-duplicate-imports': 'error',
 
   '@typescript-eslint/no-extra-semi': 'off', // Turned on in @typescript-eslint/recommended
 
