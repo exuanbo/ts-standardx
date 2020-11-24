@@ -23,7 +23,6 @@ const RULES_MAP: Array<ruleName | [ruleName, typescriptRuleName]> = [
   'no-redeclare',
   'no-throw-literal',
   'no-unused-expressions',
-  'no-use-before-define',
   'no-useless-constructor',
   'quotes',
   'semi',
@@ -32,17 +31,27 @@ const RULES_MAP: Array<ruleName | [ruleName, typescriptRuleName]> = [
 ]
 
 export const compatRules: Partial<Linter.RulesRecord> = {
-  'no-undef': 'off',
+  'no-undef': 'off', // Typescript built-in
   camelcase: 'off',
 
   'dot-notation': 'off',
   '@typescript-eslint/dot-notation': 'error',
 
-  // Turned on by @typescript-eslint/recommended
-  '@typescript-eslint/no-extra-semi': 'off',
+  '@typescript-eslint/no-extra-semi': 'off', // Turned on in @typescript-eslint/recommended
 
-  // Turned on by @typescript-eslint/recommended
-  'no-unused-vars': 'off',
+  'no-unused-vars': 'off', // Turned on in @typescript-eslint/recommended
+
+  'no-use-before-define': 'off',
+  '@typescript-eslint/no-use-before-define': [
+    'error',
+    {
+      functions: false,
+      classes: false,
+      variables: false,
+      enums: false,
+      ignoreTypeReferences: true
+    }
+  ],
 
   ...Object.fromEntries(
     RULES_MAP.map((rule): [
