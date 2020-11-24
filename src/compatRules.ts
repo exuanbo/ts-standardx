@@ -7,7 +7,7 @@ type typescriptRuleName = `@typescript-eslint/${string}`
 /**
  * https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
  */
-const RULE_MAP: Array<ruleName | [ruleName, typescriptRuleName]> = [
+const RULES_MAP: Array<ruleName | [ruleName, typescriptRuleName]> = [
   'brace-style',
   'comma-spacing',
   'func-call-spacing',
@@ -40,7 +40,7 @@ export const compatRules: Linter.Config['rules'] = {
   '@typescript-eslint/dot-notation': 'error',
 
   ...Object.fromEntries(
-    RULE_MAP.map((rule): [
+    RULES_MAP.map((rule): [
       [ruleName, unknown],
       [typescriptRuleName, unknown]
     ] => {

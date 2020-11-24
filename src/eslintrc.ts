@@ -1,5 +1,5 @@
 import path from 'path'
-import { compatRules } from './compat'
+import { compatRules } from './compatRules'
 
 const PRETTIER_STANDARD = {
   arrowParens: 'avoid',
