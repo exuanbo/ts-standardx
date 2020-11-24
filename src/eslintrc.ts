@@ -1,4 +1,5 @@
 import path from 'path'
+import { Linter } from 'eslint'
 import { compatRules } from './compatRules'
 import { rules } from './rules'
 
@@ -12,7 +13,7 @@ const PRETTIER_STANDARD = {
   trailingComma: 'none'
 }
 
-export default {
+const eslintrc: Linter.BaseConfig = {
   extends: [
     'standard',
     'standard-jsx',
@@ -42,3 +43,5 @@ export default {
     'prettier/prettier': ['error', PRETTIER_STANDARD]
   }
 }
+
+export default eslintrc
