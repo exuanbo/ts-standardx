@@ -4,6 +4,7 @@ import {
   isTypescriptRule
 } from './utils'
 import { rules } from '../src/rules'
+import { compatRules } from '../src/compatRules'
 
 describe('rules', () => {
   it('should be typescript rules', () => {
@@ -30,6 +31,15 @@ describe('rules', () => {
       if (isContained) {
         expect(ruleOption).not.toBe(recommendedTypescriptRules[ruleName])
       }
+    })
+  })
+
+  it('should not be in compatRules', () => {
+    Object.keys(rules).forEach(ruleName => {
+      const isContained = Object.keys(compatRules).some(
+        rule => rule === ruleName
+      )
+      expect(isContained).toBe(false)
     })
   })
 })
