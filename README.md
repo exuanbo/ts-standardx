@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-> Yet another customizable linter for TypeScript and JavaScript.
+> Yet another configurable linter for TypeScript and JavaScript.
 </p>
 
 <p align="center">
@@ -24,27 +24,6 @@ Todo
 ```sh
 npm install --save-dev ts-standardx
 ```
-
-## 🛠 IDE extension
-
-Install the official `eslint` extension, then add a config file in the project root directory as example below. Your custom config will be [deeply merged](https://github.com/exuanbo/standard-engine-ts/blob/main/src/utils.ts#L83) into the base `.eslintrc.js` (See [#Details](#eslintrcjs)).
-
-```js
-// .eslintrc.js
-
-const { mergeObj } = require('standard-engine-ts')
-const baseConfig = require('ts-standardx/.eslintrc.js')
-
-module.exports = mergeObj(baseConfig, {
-  /* Your custom config */
-})
-
-// Or simply use the default config
-
-module.exports = require('ts-standardx/.eslintrc.js')
-```
-
-If you don't like being blamed while coding 🤯, there is no need to export `require('ts-standardx/.eslintrc.js')`. Just write your ESLint config as usual and it will be merged automatically.
 
 ## 🤖 CLI
 
@@ -68,11 +47,10 @@ $ echo "const salute = ( ) => 'hi'" | npx ts-standardx -
 <p>
 
 ```
-ts-standardx: Yet another customizable Standard for TypeScript. (https://github.com/exuanbo/ts-standardx#readme)
+<text>:1:7: 'salute' is assigned a value but never used.
+<text>:1:17: Delete `·`
 
-  Run `ts-standardx --fix` to automatically fix some problems.
-
-  <text>:1:19: Delete `·`
+Run `ts-standardx --fix` to automatically fix some problems.
 ```
 
 </p>
@@ -90,7 +68,7 @@ $ echo "const salute = ( ) => 'hi'" | npx ts-standardx - --fix
 <p>
 
 ```
-export const a = () => 'hello'
+const salute = () => 'hi'
 ```
 
 </p>
@@ -144,6 +122,33 @@ declare const cli: CLI
 export { cli, linter, opts }
 ```
 
+## 🛠 IDE extension
+
+Install the official `eslint` extension, then add an ESLint configuration file in the project root directory as example below. Your overrides will be [deeply merged](https://github.com/exuanbo/standard-engine-ts/blob/main/src/utils.ts#L83) into the default `.eslintrc.js` (See [#eslintrc.ts](#eslintrcts)).
+
+```js
+// .eslintrc.js
+
+const { mergeObj } = require('standard-engine-ts')
+const defaultConfig = require('ts-standardx/.eslintrc.js')
+
+module.exports = mergeObj(defaultConfig, { /* eslintrc */ })
+
+// Or simply use the default
+
+module.exports = require('ts-standardx/.eslintrc.js')
+```
+
+If you don't like being blamed while coding 🤯, there is no need to export `require('ts-standardx/.eslintrc.js')`. Write your `.eslintrc.*` as usual and it will be merged automatically.
+
+<details><summary>But wait a second...</summary>
+<p>
+
+"So why can't I just use `npx eslint .` directly?" Yes, you can :p
+
+</p>
+</details>
+
 ## 🔎 Details
 
 This package includes:
@@ -162,14 +167,26 @@ This package includes:
 - prettier
 - [standard-engine-ts](https://github.com/exuanbo/standard-engine-ts#readme)
 
-### .eslintrc.js
+### eslintrc.ts
 
-```js
-const path = require('path')
+```ts
+import path from 'path'
+import { Linter } from 'eslint'
+import { compatRules } from './compatRules'
+import { rules } from './rules'
 
-module.exports = {
+const PRETTIER_STANDARD = {
+  arrowParens: 'avoid',
+  bracketSpacing: true,
+  jsxBracketSameLine: true,
+  semi: false,
+  singleQuote: true,
+  tabWidth: 2,
+  trailingComma: 'none'
+}
+
+const eslintrc: Linter.BaseConfig = {
   extends: [
-    'plugin:react/recommended',
     'standard',
     'standard-jsx',
     'plugin:prettier/recommended',
@@ -181,34 +198,25 @@ module.exports = {
       files: ['**/*.ts', '**/*.tsx'],
       extends: [
         'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'prettier/@typescript-eslint'
       ],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: path.join(process.cwd(), 'tsconfig.json')
+      },
+      rules: {
+        ...compatRules,
+        ...rules
       }
     }
   ],
   plugins: ['prettier'],
   rules: {
-    'prettier/prettier': ['error', require('./.prettierrc.js')]
+    'prettier/prettier': ['error', PRETTIER_STANDARD]
   }
 }
-```
 
-### .prettierrc.js
-
-```js
-module.exports = {
-  arrowParens: 'avoid',
-  bracketSpacing: true,
-  jsxBracketSameLine: true,
-  semi: false,
-  singleQuote: true,
-  tabWidth: 2,
-  trailingComma: 'none'
-}
+export default eslintrc
 ```
 
 ## 🤔 Why
