@@ -23,7 +23,6 @@ const RULES_MAP: Array<ruleName | [ruleName, typescriptRuleName]> = [
   'no-redeclare',
   'no-throw-literal',
   'no-unused-expressions',
-  'no-unused-vars',
   'no-use-before-define',
   'no-useless-constructor',
   'quotes',
@@ -38,6 +37,12 @@ export const compatRules: Partial<Linter.RulesRecord> = {
 
   'dot-notation': 'off',
   '@typescript-eslint/dot-notation': 'error',
+
+  // Turned on by @typescript-eslint/recommended
+  '@typescript-eslint/no-extra-semi': 'off',
+
+  // Turned on by @typescript-eslint/recommended
+  'no-unused-vars': 'off',
 
   ...Object.fromEntries(
     RULES_MAP.map((rule): [
