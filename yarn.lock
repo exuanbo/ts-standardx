@@ -4202,10 +4202,10 @@ stack-utils@^2.0.2:
   dependencies:
     escape-string-regexp "^2.0.0"
 
-standard-engine-ts@0.3.0-2:
-  version "0.3.0-2"
-  resolved "https://registry.yarnpkg.com/standard-engine-ts/-/standard-engine-ts-0.3.0-2.tgz#4e96e81008562d62cb4a32fb2ba83d13f87d63e2"
-  integrity sha512-uLGjHMHFdS/ibhZWPyQj4UiiaquAGGX94hR8yZ8RAusbmnqSmPQqJTtGsdQfnJ41lnHQKhZe+dfC5UsurNCROg==
+standard-engine-ts@0.3.0-3:
+  version "0.3.0-3"
+  resolved "https://registry.yarnpkg.com/standard-engine-ts/-/standard-engine-ts-0.3.0-3.tgz#2be47668bc271f331d914a3c94db269c4d1deae8"
+  integrity sha512-G2ESvnh/ddNNLoO7Sq3l/qMPBKGy9KYcAboSze5eSEUA3sMKsffH9neWZ22sW0oRPSov9tTafKxHj+qod1ZxFQ==
   dependencies:
     "@types/eslint" "7.2.5"
     minimist "1.2.5"
