@@ -1,5 +1,8 @@
 import { Linter } from 'eslint'
 
+/**
+ * @link https://github.com/standard/eslint-config-standard-with-typescript/blob/master/src/index.ts#L66
+ */
 export const rules: Partial<Linter.RulesRecord> = {
   '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
   '@typescript-eslint/consistent-type-assertions': [

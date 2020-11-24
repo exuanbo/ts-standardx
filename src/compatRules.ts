@@ -5,7 +5,7 @@ type ruleName = keyof typeof rules
 type typescriptRuleName = `@typescript-eslint/${string}`
 
 /**
- * https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
+ * @link https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
  */
 const RULES_MAP: Array<ruleName | [ruleName, typescriptRuleName]> = [
   'brace-style',
