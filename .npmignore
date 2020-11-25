@@ -2,7 +2,6 @@
 .github/
 .vscode/
 jest.config.js
-logo.svg
 rollup.config.js
 src/
 tsconfig.json
