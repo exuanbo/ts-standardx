@@ -8,24 +8,15 @@ type RuleEntry = typeof rules[RuleName]
  * @link https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
  */
 const RULES_MAP: RuleName[] = [
-  'brace-style',
-  'comma-spacing',
-  'func-call-spacing',
-  'keyword-spacing',
   'lines-between-class-members',
   'no-array-constructor',
   'no-dupe-class-members',
-  'no-extra-parens',
   'no-implied-eval',
   'no-loss-of-precision',
   'no-redeclare',
   'no-throw-literal',
   'no-unused-expressions',
-  'no-useless-constructor',
-  'quotes',
-  'semi',
-  'space-before-function-paren',
-  'space-infix-ops'
+  'no-useless-constructor'
 ]
 
 export const compatRules: Partial<Linter.RulesRecord> = {
@@ -36,8 +27,6 @@ export const compatRules: Partial<Linter.RulesRecord> = {
   '@typescript-eslint/dot-notation': 'error',
 
   '@typescript-eslint/no-duplicate-imports': 'error',
-
-  '@typescript-eslint/no-extra-semi': 'off', // Turned on in @typescript-eslint/recommended
 
   'no-unused-vars': 'off', // Turned on in @typescript-eslint/recommended
 

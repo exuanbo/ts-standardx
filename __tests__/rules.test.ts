@@ -1,8 +1,6 @@
-import {
-  recommendedTypescriptRules,
-  typescriptRules,
-  isTypescriptRule
-} from './utils'
+import { rules as typescriptRules } from '@typescript-eslint/eslint-plugin'
+import { rules as prettierRules } from 'eslint-config-prettier/@typescript-eslint'
+import { recommendedTypescriptRules, isTypescriptRule } from './utils'
 import { rules } from '../src/rules'
 import { compatRules } from '../src/compatRules'
 
@@ -23,13 +21,24 @@ describe('rules', () => {
     })
   })
 
-  it('should not be in recommended rules, or should be changed', () => {
+  it('should not be in @typescript-eslint/recommended, or should be changed', () => {
     Object.entries(rules).forEach(([ruleName, ruleOption]) => {
       const isContained = Object.keys(recommendedTypescriptRules).some(
         rule => rule === ruleName
       )
       if (isContained) {
         expect(ruleOption).not.toBe(recommendedTypescriptRules[ruleName])
+      }
+    })
+  })
+
+  it('should not be in prettier/@typescript-eslint', () => {
+    Object.keys(compatRules).forEach(ruleName => {
+      if (isTypescriptRule(ruleName)) {
+        const isNotContained = Object.keys(prettierRules).every(
+          rule => rule !== ruleName
+        )
+        expect(isNotContained).toBe(true)
       }
     })
   })
