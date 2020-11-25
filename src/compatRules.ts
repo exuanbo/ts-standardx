@@ -9,7 +9,6 @@ type RuleEntry = typeof rules[RuleName]
  */
 const RULES_MAP: RuleName[] = [
   'lines-between-class-members',
-  'no-array-constructor',
   'no-dupe-class-members',
   'no-implied-eval',
   'no-loss-of-precision',
@@ -27,8 +26,6 @@ export const compatRules: Partial<Linter.RulesRecord> = {
   '@typescript-eslint/dot-notation': 'error',
 
   '@typescript-eslint/no-duplicate-imports': 'error',
-
-  'no-unused-vars': 'off', // Turned on in @typescript-eslint/recommended
 
   'no-use-before-define': 'off',
   '@typescript-eslint/no-use-before-define': [

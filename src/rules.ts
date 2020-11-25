@@ -19,13 +19,6 @@ export const rules: Partial<Linter.RulesRecord> = {
       allowExpressions: true
     }
   ],
-  '@typescript-eslint/member-delimiter-style': [
-    'error',
-    {
-      multiline: { delimiter: 'none' },
-      singleline: { delimiter: 'comma', requireLast: false }
-    }
-  ],
   '@typescript-eslint/method-signature-style': 'error',
   '@typescript-eslint/naming-convention': [
     'error',
@@ -87,6 +80,5 @@ export const rules: Partial<Linter.RulesRecord> = {
   '@typescript-eslint/triple-slash-reference': [
     'error',
     { lib: 'never', path: 'never', types: 'prefer-import' }
-  ],
-  '@typescript-eslint/type-annotation-spacing': 'error'
+  ]
 }
