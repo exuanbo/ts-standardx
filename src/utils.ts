@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import { Linter } from 'eslint'
 import { getRootPath } from 'standard-engine-ts'
 
 const rootPath = getRootPath()
@@ -7,7 +8,7 @@ const rootPath = getRootPath()
 const excludeUndefined = <T>(item: T | undefined): item is T =>
   item !== undefined
 
-export const getEslintrc = (): Record<string, unknown> | undefined => {
+export const getEslintrc = (): Linter.BaseConfig | undefined => {
   const eslintrcList = ['.eslintrc.js', '.eslintrc.json', '.eslintrc']
     .map(file => {
       const filePath = path.join(rootPath, file)
@@ -16,11 +17,9 @@ export const getEslintrc = (): Record<string, unknown> | undefined => {
     .filter(excludeUndefined)
 
   if (eslintrcList.length > 0) {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-unsafe-assignment
-    const eslintrc = require(eslintrcList[0])
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return JSON.parse(
-      JSON.stringify(eslintrc).replace(
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      JSON.stringify(require(eslintrcList[0])).replace(
         "require('ts-standardx/.eslintrc.js')",
         '{}'
       )
