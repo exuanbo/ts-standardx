@@ -1,19 +1,11 @@
-<h1 id="logo" align="center">
-<a href="#logo"><img src="./logo.svg"></a>
-</h1>
+<h1 id="logo"><a href="#logo"><img src="./logo.svg"></a></h1>
 
-<p align="center">
 > Yet another configurable linter for TypeScript and JavaScript.
-</p>
 
-<p align="center">
-<a href="https://www.npmjs.com/package/ts-standardx">
-<img src="https://img.shields.io/npm/v/ts-standardx">
-</a>
-<a href="https://libraries.io/npm/ts-standardx">
-<img src="https://img.shields.io/librariesio/release/npm/ts-standardx?label=deps">
-</a>
-</p>
+[![npm](https://img.shields.io/npm/v/ts-standardx)](https://www.npmjs.com/package/ts-standardx)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/exuanbo/ts-standardx/Node.js%20CI/main)](https://github.com/exuanbo/ts-standardx/actions?query=workflow%3A%22Node.js+CI%22)
+[![Codecov branch](https://img.shields.io/codecov/c/gh/exuanbo/ts-standardx/main?token=D9AA8C1ZS2)](https://codecov.io/gh/exuanbo/ts-standardx)
+[![libera manifesto](https://img.shields.io/badge/libera-manifesto-lightgrey.svg)](https://liberamanifesto.com)
 
 ## 🚀 Features
 
@@ -225,7 +217,6 @@ Todo
 
 ## 📃 Todo
 
-- [ ] Unit testing
 - [ ] Documentation
 - [ ] Prettier output
 - [ ] Better intergration with Prettier
