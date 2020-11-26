@@ -15,6 +15,7 @@ const RULES_MAP: RuleName[] = [
   'no-redeclare',
   'no-throw-literal',
   'no-unused-expressions',
+  'no-unused-vars',
   'no-useless-constructor'
 ]
 

@@ -7,48 +7,56 @@ import {
 } from './utils'
 import { compatRules } from '../src/compatRules'
 
+const EXCEPTION = ['no-unused-vars']
+
+const getActualRuleName = (ruleName: string): string =>
+  ruleName.replace(/^@typescript-eslint\//, '')
+
 describe('compatRules', () => {
   Object.keys(compatRules).forEach(ruleName => {
-    it(`rule ${ruleName} should be in @typescript-eslint`, () => {
-      if (isTypescriptRule(ruleName)) {
-        const actualRuleName = ruleName.replace(/^@typescript-eslint\//, '')
+    if (isTypescriptRule(ruleName)) {
+      it(`rule ${ruleName} should be in @typescript-eslint`, () => {
+        const actualRuleName = getActualRuleName(ruleName)
         const isContained = Object.keys(typescriptRules).some(
           rule => rule === actualRuleName
         )
         expect(isContained).toBe(true)
-      }
-    })
+      })
+    }
   })
 
   Object.keys(compatRules).forEach(ruleName => {
-    it(`rule ${ruleName} should not be in @typescript-eslint/recommended`, () => {
-      const isNotContained = Object.keys(recommendedTypescriptRules).every(
-        rule => rule !== ruleName
-      )
-      expect(isNotContained).toBe(true)
-    })
+    const actualRuleName = getActualRuleName(ruleName)
+    if (!EXCEPTION.some(exceptionRule => exceptionRule === actualRuleName)) {
+      it(`rule ${ruleName} should not be in @typescript-eslint/recommended`, () => {
+        const isNotContained = Object.keys(recommendedTypescriptRules).every(
+          rule => rule !== ruleName
+        )
+        expect(isNotContained).toBe(true)
+      })
+    }
   })
 
   Object.keys(compatRules).forEach(ruleName => {
-    it(`rule ${ruleName} should not be in prettier/@typescript-eslint`, () => {
-      if (isTypescriptRule(ruleName)) {
+    if (isTypescriptRule(ruleName)) {
+      it(`rule ${ruleName} should not be in prettier/@typescript-eslint`, () => {
         const isNotContained = Object.keys(prettierRules).every(
           rule => rule !== ruleName
         )
         expect(isNotContained).toBe(true)
-      }
-    })
+      })
+    }
   })
 
   Object.entries(compatRules).forEach(([ruleName, ruleOption]) => {
-    it(`rules ${ruleName} should be turned off`, () => {
-      if (!isTypescriptRule(ruleName)) {
+    if (!isTypescriptRule(ruleName)) {
+      it(`rules ${ruleName} should be turned off`, () => {
         const isContained = Object.keys(standardRules).some(
           rule => rule === ruleName
         )
         expect(isContained).toBe(true)
         expect(ruleOption).toBe('off')
-      }
-    })
+      })
+    }
   })
 })
