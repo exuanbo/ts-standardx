@@ -1,4 +1,4 @@
-<h1 id="logo"><a href="#logo"><img src="./logo.svg"></a></h1>
+# [![ts-standardx](https://raw.githubusercontent.com/exuanbo/ts-standardx/main/logo.svg)](https://github.com/exuanbo/ts-standardx)
 
 > Yet another configurable linter for TypeScript and JavaScript.
 
