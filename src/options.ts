@@ -13,8 +13,6 @@ import {
 
 const ENGINE = 'standard-engine-ts'
 
-const eslintrc = getEslintrc()
-
 export const opts: ProvidedOptions = {
   cmd: name,
   version: `${version} (${ENGINE} v${dependencies[ENGINE]})`,
@@ -23,7 +21,7 @@ export const opts: ProvidedOptions = {
   bugs: bugs.url,
   eslint,
   eslintOptions: {
-    baseConfig: eslintrc
+    baseConfig: getEslintrc()
   },
   extensions: ['.ts', '.tsx'],
   configFile: path.join(__dirname, '../.eslintrc.js')
