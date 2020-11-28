@@ -114,7 +114,7 @@ declare const cli: CLI
 export { cli, linter, opts }
 ```
 
-## 🛠 IDE extension
+## 🛠 Editor extension
 
 Install the official `eslint` extension, then add an ESLint configuration file in the project root directory as example below. Your overrides will be [deeply merged](https://github.com/exuanbo/standard-engine-ts/blob/main/src/utils.ts#L83) into the default `.eslintrc.js` (See [#eslintrc.ts](#eslintrcts)).
 
@@ -164,6 +164,7 @@ This package includes:
 ```ts
 import path from 'path'
 import { Linter } from 'eslint'
+import { isModuleAvailable } from './utils'
 import { compatRules } from './compatRules'
 import { rules } from './rules'
 
@@ -185,23 +186,25 @@ const eslintrc: Linter.BaseConfig = {
     'prettier/react',
     'prettier/standard'
   ],
-  overrides: [
-    {
-      files: ['**/*.ts', '**/*.tsx'],
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        'prettier/@typescript-eslint'
-      ],
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        project: path.join(process.cwd(), 'tsconfig.json')
-      },
-      rules: {
-        ...compatRules,
-        ...rules
-      }
-    }
-  ],
+  overrides: isModuleAvailable('typescript')
+    ? [
+        {
+          files: ['**/*.ts', '**/*.tsx'],
+          extends: [
+            'plugin:@typescript-eslint/recommended',
+            'prettier/@typescript-eslint'
+          ],
+          parser: '@typescript-eslint/parser',
+          parserOptions: {
+            project: path.join(process.cwd(), 'tsconfig.json')
+          },
+          rules: {
+            ...compatRules,
+            ...rules
+          }
+        }
+      ]
+    : undefined,
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': ['error', PRETTIER_STANDARD]
