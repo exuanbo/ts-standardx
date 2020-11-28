@@ -1,41 +1,27 @@
-import fs from 'fs'
-import path from 'path'
-import { getEslintrc } from '../src/utils'
+import { getEslintrc, isModuleAvailable } from '../src/utils'
+
+describe('isModuleAvailable', () => {
+  it('should return true if module is available', () => {
+    const res = isModuleAvailable('typescript')
+    expect(res).toBe(true)
+  })
+
+  it('should return false if module is not available', () => {
+    const res = isModuleAvailable('no_such_module')
+    expect(res).toBe(false)
+  })
+})
 
 describe('getEslintrc', () => {
   it('should return eslintrc', () => {
-    const eslintrc = getEslintrc()
+    const res = getEslintrc()
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    expect(eslintrc).toStrictEqual(require('../.eslintrc.js'))
+    expect(res).toStrictEqual(require('../.eslintrc.js'))
   })
 
-  describe('if not found', () => {
-    const grandParentPath = path.join(process.cwd(), '../..')
-    const tmpDirPath = path.join(grandParentPath, 'node_modules')
-    const tmpFilePath = path.join(grandParentPath, 'package.json')
-
-    beforeAll(() => {
-      try {
-        fs.mkdirSync(tmpDirPath)
-        if (fs.existsSync(tmpFilePath)) {
-          throw new Error()
-        }
-        fs.writeFileSync(tmpFilePath, '')
-      } catch {
-        throw new Error(
-          'Failed to create temp files. Feel free to comment out this test.'
-        )
-      }
-    })
-
-    afterAll(() => {
-      fs.rmdirSync(tmpDirPath)
-      fs.rmSync(tmpFilePath)
-    })
-
-    it('should return undefined', () => {
-      const eslintrc = getEslintrc()
-      expect(eslintrc).toBe(undefined)
-    })
+  it('should return undefined if not found', () => {
+    process.chdir(__dirname)
+    const res = getEslintrc()
+    expect(res).toBe(undefined)
   })
 })

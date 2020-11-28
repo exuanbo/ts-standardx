@@ -2,6 +2,15 @@ import fs from 'fs'
 import path from 'path'
 import { Linter } from 'eslint'
 
+export const isModuleAvailable = (path: string): boolean => {
+  try {
+    require.resolve(path)
+    return true
+  } catch {
+    return false
+  }
+}
+
 const excludeUndefined = <T>(item: T | undefined): item is T =>
   item !== undefined
 

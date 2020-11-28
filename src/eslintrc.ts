@@ -1,5 +1,6 @@
 import path from 'path'
 import { Linter } from 'eslint'
+import { isModuleAvailable } from './utils'
 import { compatRules } from './compatRules'
 import { rules } from './rules'
 
@@ -21,23 +22,25 @@ const eslintrc: Linter.BaseConfig = {
     'prettier/react',
     'prettier/standard'
   ],
-  overrides: [
-    {
-      files: ['**/*.ts', '**/*.tsx'],
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        'prettier/@typescript-eslint'
-      ],
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        project: path.join(process.cwd(), 'tsconfig.json')
-      },
-      rules: {
-        ...compatRules,
-        ...rules
-      }
-    }
-  ],
+  overrides: isModuleAvailable('typescript')
+    ? [
+        {
+          files: ['**/*.ts', '**/*.tsx'],
+          extends: [
+            'plugin:@typescript-eslint/recommended',
+            'prettier/@typescript-eslint'
+          ],
+          parser: '@typescript-eslint/parser',
+          parserOptions: {
+            project: path.join(process.cwd(), 'tsconfig.json')
+          },
+          rules: {
+            ...compatRules,
+            ...rules
+          }
+        }
+      ]
+    : undefined,
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': ['error', PRETTIER_STANDARD]

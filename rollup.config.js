@@ -20,7 +20,7 @@ export default [
     ]
   },
   {
-    external: ['path', 'eslint-config-standard/eslintrc.json'],
+    external: ['fs', 'path', 'eslint-config-standard/eslintrc.json'],
     input: 'src/eslintrc.ts',
     plugins: [typescript()],
     output: {
