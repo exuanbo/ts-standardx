@@ -1,17 +1,14 @@
 import fs from 'fs'
 import path from 'path'
 import { Linter } from 'eslint'
-import { getRootPath } from 'standard-engine-ts'
 
 const excludeUndefined = <T>(item: T | undefined): item is T =>
   item !== undefined
 
 export const getEslintrc = (): Linter.BaseConfig | undefined => {
-  const rootPath = getRootPath()
-
   const eslintrcArr = ['.eslintrc.js', '.eslintrc.json', '.eslintrc']
     .map(file => {
-      const filePath = path.join(rootPath, file)
+      const filePath = path.join(process.cwd(), file)
       return (fs.existsSync(filePath) && filePath) || undefined
     })
     .filter(excludeUndefined)
