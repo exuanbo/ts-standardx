@@ -3918,10 +3918,10 @@ rollup-plugin-dts@2.0.0:
   optionalDependencies:
     "@babel/code-frame" "^7.10.4"
 
-rollup@2.33.3:
-  version "2.33.3"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.33.3.tgz#ae72ce31f992b09a580072951bfea76e9df17342"
-  integrity sha512-RpayhPTe4Gu/uFGCmk7Gp5Z9Qic2VsqZ040G+KZZvsZYdcuWaJg678JeDJJvJeEQXminu24a2au+y92CUWVd+w==
+rollup@2.34.0:
+  version "2.34.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.34.0.tgz#ecc7f1d4ce2cb88bb51bec2f56b984f3c35b8271"
+  integrity sha512-dW5iLvttZzdVehjEuNJ1bWvuMEJjOWGmnuFS82WeKHTGXDkRHQeq/ExdifkSyJv9dLcR86ysKRmrIDyR6O0X8g==
   optionalDependencies:
     fsevents "~2.1.2"
 
@@ -4204,10 +4204,10 @@ stack-utils@^2.0.2:
   dependencies:
     escape-string-regexp "^2.0.0"
 
-standard-engine-ts@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/standard-engine-ts/-/standard-engine-ts-0.3.0.tgz#62b523ff5b69c2f3c511873c5a49e6477d26caf6"
-  integrity sha512-gQOD/OBrrgRSaECru4fQhOUr7835DRb/hKH6RUGSZdkjB4/bnDC8aIICeJ+iPoLVy2FUfPImqoCn4YrZD8sO0w==
+standard-engine-ts@0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/standard-engine-ts/-/standard-engine-ts-0.3.1.tgz#4179d49b74d5942011824273dbb47fe1924714d7"
+  integrity sha512-wU1wagMDjKTUSAJ/5q+pQoAwKSspbhCzsN4Q3GRc0k4pgUH61PnY4efAxo2U9jqQIEuNMZWiia2kNTVwz4HvVg==
   dependencies:
     "@types/eslint" "7.2.5"
     minimist "1.2.5"
