@@ -116,15 +116,15 @@ export { cli, linter, opts }
 
 ## 🛠 Editor extension
 
-Install the official `eslint` extension, then add an ESLint configuration file in the project root directory as example below. Your overrides will be [deeply merged](https://github.com/exuanbo/standard-engine-ts/blob/main/src/utils.ts#L83) into the default `.eslintrc.js` (See [#eslintrc.ts](#eslintrcts)).
+Install the official `eslint` extension, then add an ESLint configuration file in the project root directory as example below. Your overrides will be [deeply merged](https://github.com/exuanbo/standard-engine-ts/blob/main/src/utils.ts#L83) into the default `.eslintrc.js` (See [eslintrc.ts](#eslintrcts)).
 
 ```js
 // .eslintrc.js
 
-const { mergeObj } = require('standard-engine-ts')
+const { mergeConfig } = require('standard-engine-ts')
 const defaultConfig = require('ts-standardx/.eslintrc.js')
 
-module.exports = mergeObj(defaultConfig, { /* eslintrc */ })
+module.exports = mergeConfig(defaultConfig, { /* eslintrc */ })
 
 // Or simply use the default
 
