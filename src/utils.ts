@@ -22,14 +22,5 @@ export const getEslintrc = (): Linter.BaseConfig | undefined => {
     })
     .filter(excludeUndefined)
 
-  if (eslintrcArr.length > 0) {
-    return JSON.parse(
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
-      JSON.stringify(require(eslintrcArr[0])).replace(
-        "require('ts-standardx/.eslintrc.js')",
-        '{}'
-      )
-    )
-  }
-  return undefined
+  return eslintrcArr.length > 0 ? require(eslintrcArr[0]) : undefined
 }
