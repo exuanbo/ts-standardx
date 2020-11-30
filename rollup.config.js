@@ -1,15 +1,15 @@
 import typescript from '@rollup/plugin-typescript'
-import json from '@rollup/plugin-json'
 import dts from 'rollup-plugin-dts'
 import pkg from './package.json'
 
 const EXTERNAL = ['fs', 'path', ...Object.keys(pkg.dependencies)]
+const plugins = [typescript()]
 
 export default [
   {
-    external: EXTERNAL,
+    external: [...EXTERNAL, '../package.json'],
     input: 'src/index.ts',
-    plugins: [typescript(), json({ compact: true, preferConst: true })],
+    plugins,
     output: [
       {
         file: pkg.main,
@@ -24,7 +24,7 @@ export default [
   {
     external: [...EXTERNAL, 'eslint-config-standard/eslintrc.json'],
     input: 'src/eslintrc.ts',
-    plugins: [typescript()],
+    plugins,
     output: {
       file: '.eslintrc.js',
       format: 'cjs',
