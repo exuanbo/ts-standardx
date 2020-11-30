@@ -20,15 +20,7 @@ export const rules: Partial<Linter.RulesRecord> = {
     }
   ],
   '@typescript-eslint/method-signature-style': 'error',
-  '@typescript-eslint/naming-convention': [
-    'error',
-    {
-      selector: 'variableLike',
-      leadingUnderscore: 'allow',
-      trailingUnderscore: 'allow',
-      format: ['camelCase', 'PascalCase', 'UPPER_CASE']
-    }
-  ],
+  '@typescript-eslint/naming-convention': 'error',
   '@typescript-eslint/no-base-to-string': 'error',
   '@typescript-eslint/no-dynamic-delete': 'error',
   '@typescript-eslint/no-extraneous-class': [
