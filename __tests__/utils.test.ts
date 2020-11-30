@@ -1,16 +1,6 @@
-import { getEslintrc, isModuleAvailable } from '../src/utils'
-
-describe('isModuleAvailable', () => {
-  it('should return true if module is available', () => {
-    const res = isModuleAvailable('typescript')
-    expect(res).toBe(true)
-  })
-
-  it('should return false if module is not available', () => {
-    const res = isModuleAvailable('no_such_module')
-    expect(res).toBe(false)
-  })
-})
+import fs from 'fs'
+import path from 'path'
+import { getEslintrc } from '../src/utils'
 
 describe('getEslintrc', () => {
   it('should return eslintrc', () => {
@@ -20,8 +10,15 @@ describe('getEslintrc', () => {
   })
 
   it('should return undefined if not found', () => {
-    process.chdir(__dirname)
+    const FILE_NAME = '.eslintrc.js'
+    const oldPath = path.join(process.cwd(), FILE_NAME)
+    const newPath = path.join(__dirname, FILE_NAME)
+
+    fs.renameSync(oldPath, newPath)
+
     const res = getEslintrc()
     expect(res).toBe(undefined)
+
+    fs.renameSync(newPath, oldPath)
   })
 })

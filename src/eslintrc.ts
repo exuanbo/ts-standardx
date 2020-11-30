@@ -1,6 +1,5 @@
 import path from 'path'
 import { Linter } from 'eslint'
-import { isModuleAvailable } from './utils'
 import { compatRules } from './compatRules'
 import { rules } from './rules'
 
@@ -12,6 +11,15 @@ const PRETTIER_STANDARD = {
   singleQuote: true,
   tabWidth: 2,
   trailingComma: 'none'
+}
+
+const isModuleAvailable = (path: string): boolean => {
+  try {
+    require.resolve(path)
+    return true
+  } catch {
+    return false
+  }
 }
 
 const eslintrc: Linter.BaseConfig = {
