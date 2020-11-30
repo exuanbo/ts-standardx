@@ -3,9 +3,11 @@ import json from '@rollup/plugin-json'
 import dts from 'rollup-plugin-dts'
 import pkg from './package.json'
 
+const EXTERNAL = ['fs', 'path', ...Object.keys(pkg.dependencies)]
+
 export default [
   {
-    external: ['fs', 'path', ...Object.keys(pkg.dependencies)],
+    external: EXTERNAL,
     input: 'src/index.ts',
     plugins: [typescript(), json({ compact: true, preferConst: true })],
     output: [
@@ -20,7 +22,7 @@ export default [
     ]
   },
   {
-    external: ['fs', 'path', 'eslint-config-standard/eslintrc.json'],
+    external: [...EXTERNAL, 'eslint-config-standard/eslintrc.json'],
     input: 'src/eslintrc.ts',
     plugins: [typescript()],
     output: {
