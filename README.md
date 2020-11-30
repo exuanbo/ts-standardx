@@ -116,7 +116,7 @@ export { cli, linter, opts }
 
 ## 🛠 Editor extension
 
-Install the official `eslint` extension, then add an ESLint configuration file in the project root directory as example below. Your overrides will be [deeply merged](https://github.com/exuanbo/standard-engine-ts/blob/main/src/utils.ts#L83) into the default `.eslintrc.js` (See [eslintrc.ts](#eslintrcts)).
+Install the official `eslint` extension, then add an ESLint configuration file in the project root directory as example below. Your overrides will be [deeply merged](https://github.com/exuanbo/standard-engine-ts/blob/main/src/utils.ts#L83) into the default `.eslintrc.js`
 
 ```js
 // .eslintrc.js
@@ -162,11 +162,7 @@ This package includes:
 ### eslintrc.ts
 
 ```ts
-import path from 'path'
-import { Linter } from 'eslint'
-import { isModuleAvailable } from './utils'
-import { compatRules } from './compatRules'
-import { rules } from './rules'
+// https://github.com/exuanbo/ts-standardx/blob/main/src/eslintrc.ts
 
 const PRETTIER_STANDARD = {
   arrowParens: 'avoid',
