@@ -30,7 +30,6 @@ export const rules: Partial<Linter.RulesRecord> = {
   '@typescript-eslint/no-floating-promises': [
     'error',
     {
-      ignoreVoid: true,
       ignoreIIFE: true
     }
   ],
