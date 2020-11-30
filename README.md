@@ -216,9 +216,10 @@ Todo
 
 ## 📃 Todo
 
-- [ ] Documentation
+- [ ] Document
+- [ ] Allow specify `parserOptions: { project: './tsconfig.json' }`
 - [ ] Prettier output
-- [ ] Better intergration with Prettier
+- [ ] Better integrate with Prettier
 
 ## License
 
