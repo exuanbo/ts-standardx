@@ -20,7 +20,7 @@ const RULES_MAP: RuleName[] = [
 ]
 
 export const compatRules: Partial<Linter.RulesRecord> = {
-  'no-undef': 'off', // Typescript built-in
+  'no-undef': 'off',
   camelcase: 'off',
 
   'dot-notation': 'off',
