@@ -1,4 +1,3 @@
-import path from 'path'
 import { Linter } from 'eslint'
 import { compatRules } from './compatRules'
 import { rules } from './rules'
@@ -40,7 +39,7 @@ const eslintrc: Linter.BaseConfig = {
           ],
           parser: '@typescript-eslint/parser',
           parserOptions: {
-            project: path.join(process.cwd(), 'tsconfig.json')
+            project: './tsconfig.json'
           },
           rules: {
             ...compatRules,
