@@ -192,7 +192,7 @@ const eslintrc: Linter.BaseConfig = {
           ],
           parser: '@typescript-eslint/parser',
           parserOptions: {
-            project: path.join(process.cwd(), 'tsconfig.json')
+            project: './tsconfig.json'
           },
           rules: {
             ...compatRules,
