@@ -1,6 +1,7 @@
 import { Linter } from 'eslint'
 
 /**
+ * Picked from `eslint-config-standard-with-typescript`
  * @link https://github.com/standard/eslint-config-standard-with-typescript/blob/master/src/index.ts#L66
  */
 export const rules: Partial<Linter.RulesRecord> = {
