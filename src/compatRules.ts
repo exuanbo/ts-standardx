@@ -6,10 +6,8 @@ type RuleEntry = typeof rules[RuleName]
 
 const RULES_MAP: RuleName[] = [
   'lines-between-class-members',
-  'no-dupe-class-members',
   'no-implied-eval',
   'no-loss-of-precision',
-  'no-redeclare',
   'no-throw-literal',
   'no-unused-expressions',
   'no-unused-vars',
@@ -44,6 +42,12 @@ export const compatRules: Partial<Linter.RulesRecord> = {
    * @link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L229
    */
   '@typescript-eslint/no-duplicate-imports': 'error',
+
+  /**
+   * The original rule is turned off by `@typescript-eslint/eslint-recommended`
+   * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts#L21
+   */
+  '@typescript-eslint/no-redeclare': 'error',
 
   /**
    * Add @typescript-eslint specific options
