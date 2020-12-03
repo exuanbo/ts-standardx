@@ -2,7 +2,7 @@ import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
 import pkg from './package.json'
 
-const external = ['fs', 'path', ...Object.keys(pkg.dependencies), /.*\.json/]
+const external = ['path', ...Object.keys(pkg.dependencies), /.*\.json/]
 const plugins = [typescript()]
 
 export default [

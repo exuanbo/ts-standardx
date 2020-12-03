@@ -1,6 +1,7 @@
 import { Linter } from 'eslint'
 import { compatRules } from './compatRules'
 import { rules } from './rules'
+import { isModuleAvailable } from './utils'
 
 const PRETTIER_STANDARD = {
   arrowParens: 'avoid',
@@ -10,15 +11,6 @@ const PRETTIER_STANDARD = {
   singleQuote: true,
   tabWidth: 2,
   trailingComma: 'none'
-}
-
-const isModuleAvailable = (path: string): boolean => {
-  try {
-    require.resolve(path)
-    return true
-  } catch {
-    return false
-  }
 }
 
 const eslintrc: Linter.BaseConfig = {
