@@ -114,24 +114,36 @@ declare const cli: CLI
 export { cli, linter, opts }
 ```
 
-## 🛠 Editor extension
+## ⚙️ Configuration
 
-Install the official `eslint` extension, then add an ESLint configuration file in the project root directory as example below. Your overrides will be [deeply merged](https://github.com/exuanbo/standard-engine-ts/blob/main/src/utils.ts#L83) into the default `.eslintrc.js`
+`ts-standardx` uses `.eslintrc.*` from the current working directory. Note that rules for TypeScript need to be placed in `overrides` as example below.
 
 ```js
 // .eslintrc.js
 
-const { mergeConfig } = require('standard-engine-ts')
-const defaultConfig = require('ts-standardx/.eslintrc.js')
-
-module.exports = mergeConfig(defaultConfig, { /* eslintrc */ })
-
-// Or simply use the default
-
-module.exports = require('ts-standardx/.eslintrc.js')
+module.exports = {
+  overrides: [
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'off'
+      }
+    }
+  ]
+}
 ```
 
-If you don't like being blamed while coding 🤯, there is no need to export `require('ts-standardx/.eslintrc.js')`. Write your `.eslintrc.*` as usual and it will be merged automatically.
+### Editor extension
+
+Add the [default config](#eslintrcts) to `extends` to use the official ESLint extension.
+
+```js
+// .eslintrc.js
+
+module.exports = {
+  extends: ['./node_modules/ts-standardx/.eslintrc.js']
+}
+```
 
 <details><summary>But wait a second...</summary>
 <p>
@@ -162,7 +174,10 @@ This package includes:
 ### eslintrc.ts
 
 ```ts
-// https://github.com/exuanbo/ts-standardx/blob/main/src/eslintrc.ts
+import { Linter } from 'eslint'
+import { compatRules } from './compatRules'
+import { rules } from './rules'
+import { isModuleAvailable } from './utils'
 
 const PRETTIER_STANDARD = {
   arrowParens: 'avoid',
