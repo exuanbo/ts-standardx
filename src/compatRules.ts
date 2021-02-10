@@ -44,7 +44,7 @@ export const compatRules: Partial<Linter.RulesRecord> = {
   '@typescript-eslint/no-duplicate-imports': 'error',
 
   /**
-   * The original rule is turned off by `@typescript-eslint/eslint-recommended`
+   * The original eslint rule is turned off by `@typescript-eslint/eslint-recommended`
    * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts#L21
    */
   '@typescript-eslint/no-redeclare': 'error',
