@@ -4,7 +4,7 @@ import { rules } from 'eslint-config-standard/eslintrc.json'
 type RuleName = keyof typeof rules
 type RuleEntry = typeof rules[RuleName]
 
-const RULES_MAP: RuleName[] = [
+const EQUIVALENT_RULES: RuleName[] = [
   'lines-between-class-members',
   'no-implied-eval',
   'no-loss-of-precision',
@@ -14,7 +14,7 @@ const RULES_MAP: RuleName[] = [
   'no-useless-constructor'
 ]
 
-export const compatRules: Partial<Linter.RulesRecord> = {
+export const compatRules: Linter.RulesRecord = {
   /**
    * Use `@typescript-eslint/naming-convention` instead
    * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md
@@ -69,7 +69,7 @@ export const compatRules: Partial<Linter.RulesRecord> = {
   ],
 
   ...Object.fromEntries(
-    RULES_MAP.map((rule): [[RuleName, 'off'], [string, RuleEntry]] => [
+    EQUIVALENT_RULES.map((rule): [[RuleName, 'off'], [string, RuleEntry]] => [
       [rule, 'off'],
       [`@typescript-eslint/${rule}`, rules[rule]]
     ]).flat()
