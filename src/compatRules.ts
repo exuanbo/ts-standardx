@@ -17,9 +17,21 @@ const EQUIVALENT_RULES: RuleName[] = [
 export const compatRules: Linter.RulesRecord = {
   /**
    * Use `@typescript-eslint/naming-convention` instead
-   * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md
+   * @link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L39
    */
   camelcase: 'off',
+  /**
+   * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md
+   */
+  '@typescript-eslint/naming-convention': [
+    'error',
+    {
+      selector: 'variable',
+      format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+      leadingUnderscore: 'allow',
+      trailingUnderscore: 'allow'
+    }
+  ],
 
   /**
    * Error when using the same option from `eslint-config-standard`
