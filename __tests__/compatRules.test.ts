@@ -13,7 +13,7 @@ const getActualRuleName = (ruleName: string): string =>
   ruleName.replace(/^@typescript-eslint\//, '')
 
 describe('compatRules', () => {
-  Object.keys(compatRules).forEach(ruleName => {
+  Object.entries(compatRules).forEach(([ruleName, ruleOption]) => {
     if (isTypescriptRule(ruleName)) {
       it(`rule ${ruleName} should be in @typescript-eslint`, () => {
         const actualRuleName = getActualRuleName(ruleName)
@@ -22,34 +22,24 @@ describe('compatRules', () => {
         )
         expect(isContained).toBe(true)
       })
-    }
-  })
 
-  Object.keys(compatRules).forEach(ruleName => {
-    const actualRuleName = getActualRuleName(ruleName)
-    if (!EXCEPTION.some(exceptionRule => exceptionRule === actualRuleName)) {
-      it(`rule ${ruleName} should not be in @typescript-eslint/recommended`, () => {
-        const isNotContained = Object.keys(recommendedTypescriptRules).every(
-          rule => rule !== ruleName
-        )
-        expect(isNotContained).toBe(true)
-      })
-    }
-  })
+      const actualRuleName = getActualRuleName(ruleName)
+      if (!EXCEPTION.some(exceptionRule => exceptionRule === actualRuleName)) {
+        it(`rule ${ruleName} should not be in @typescript-eslint/recommended`, () => {
+          const isNotContained = Object.keys(recommendedTypescriptRules).every(
+            rule => rule !== ruleName
+          )
+          expect(isNotContained).toBe(true)
+        })
+      }
 
-  Object.keys(compatRules).forEach(ruleName => {
-    if (isTypescriptRule(ruleName)) {
       it(`rule ${ruleName} should not be in prettier/@typescript-eslint`, () => {
         const isNotContained = Object.keys(prettierRules).every(
           rule => rule !== ruleName
         )
         expect(isNotContained).toBe(true)
       })
-    }
-  })
-
-  Object.entries(compatRules).forEach(([ruleName, ruleOption]) => {
-    if (!isTypescriptRule(ruleName)) {
+    } else {
       it(`rules ${ruleName} should be turned off`, () => {
         const isContained = Object.keys(standardRules).some(
           rule => rule === ruleName
