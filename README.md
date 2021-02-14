@@ -32,15 +32,18 @@ $ npx ts-standardx --fix
 To lint text from stdin, use `-` or `--stdin`.
 
 ```sh
-$ echo "const salute = ( ) => 'hi'" | npx ts-standardx -
+$ echo "const greet = ( ) => 'hi'" | npx ts-standardx -
 ```
 
 <details><summary>output</summary>
 <p>
 
 ```
-<text>:1:7: 'salute' is assigned a value but never used.
-<text>:1:17: Delete `·`
+<text>:1:7
+  error  'greet' is assigned a value but never used.  no-unused-vars
+
+<text>:1:17
+  error  Delete `·`  prettier/prettier
 
 Run `ts-standardx --fix` to automatically fix some problems.
 ```
@@ -53,14 +56,14 @@ Run `ts-standardx --fix` to automatically fix some problems.
 Add `--fix` to output fixed text.
 
 ```sh
-$ echo "const salute = ( ) => 'hi'" | npx ts-standardx - --fix
+$ echo "const greet = ( ) => 'hi'" | npx ts-standardx - --fix
 ```
 
 <details><summary>output</summary>
 <p>
 
 ```
-const salute = () => 'hi'
+const greet = () => 'hi'
 ```
 
 </p>
@@ -69,19 +72,18 @@ const salute = () => 'hi'
 ### --help
 
 ```
-ts-standardx: Yet another customizable linter for TypeScript and JavaScript. (https://github.com/exuanbo/ts-standardx#readme)
+ts-standardx: Yet another configurable linter for TypeScript and JavaScript. (https://github.com/exuanbo/ts-standardx#readme)
 
 Usage: ts-standardx <flags> [FILES...]
 
   If FILES is omitted, all source files (*.ts, *.tsx, *.js, *.jsx, *.mjs, *.cjs)
   in the current working directory will be checked recursively.
 
-  By default, files/folders that begin with '.' like .eslintrc .cache/
-  and paths in the project's root .gitignore are automatically ignored.
+  By default, files/folders that begin with '.' like .eslintrc .cache/ and
+  paths in .gitignore are automatically ignored.
 
 Basic:
   --fix                Automatically fix problems
-  --verbose            Show rule names for errors (to ignore specific rules)
 
 Config:
   --env                Use custom eslint environment
@@ -104,14 +106,22 @@ Misc:
 ```ts
 // index.d.ts
 
-import { ProvidedOptions, Linter, CLI } from 'standard-engine-ts'
+import {
+  ProvidedOptions,
+  Linter as Linter$1,
+  CLI as CLI$1
+} from 'standard-engine-ts'
 
-declare const opts: ProvidedOptions
+declare const options: ProvidedOptions
 
-declare const linter: Linter
-declare const cli: CLI
+declare class Linter extends Linter$1 {
+  constructor(customOptions?: ProvidedOptions)
+}
+declare class CLI extends CLI$1 {
+  constructor(customOptions?: ProvidedOptions)
+}
 
-export { cli, linter, opts }
+export { CLI, Linter, options }
 ```
 
 ## ⚙️ Configuration
@@ -148,7 +158,7 @@ module.exports = {
 <details><summary>But wait a second...</summary>
 <p>
 
-"So why can't I just use `npx eslint .` directly?" Yes, you can :p
+"So why can't I use `npx eslint .` directly?" Yes, you can :p
 
 </p>
 </details>
@@ -233,7 +243,6 @@ Todo
 
 - [ ] Document
 - [ ] Allow specify `parserOptions: { project: './tsconfig.json' }`
-- [ ] Prettier output
 - [ ] Better integrate with Prettier
 
 ## License
