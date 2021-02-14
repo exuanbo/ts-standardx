@@ -1,11 +1,13 @@
 {
   "name": "ts-standardx",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Yet another configurable linter for TypeScript and JavaScript.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "bin": "bin/cmd.js",
+  "bin": {
+    "ts-standardx": "bin/cmd.js"
+  },
   "directories": {
     "test": "__tests__"
   },
