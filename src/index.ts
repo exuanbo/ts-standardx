@@ -3,12 +3,12 @@ import {
   ProvidedOptions,
   mergeConfig
 } from 'standard-engine-ts'
-import { opts } from './options'
+import { options } from './options'
 
 export class Linter extends StandardLinter {
-  constructor(options?: ProvidedOptions) {
-    super(mergeConfig(opts, options))
+  constructor(customOptions?: ProvidedOptions) {
+    super(mergeConfig(options, customOptions))
   }
 }
 
-export { opts }
+export { options }

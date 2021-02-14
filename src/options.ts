@@ -12,7 +12,7 @@ import {
 
 const ENGINE = 'standard-engine-ts'
 
-export const opts: ProvidedOptions = {
+export const options: ProvidedOptions = {
   cmd: name,
   version: `${version} (${ENGINE} v${dependencies[ENGINE]})`,
   tagline: description,
