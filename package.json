@@ -16,8 +16,8 @@
     "dts": "tsc -d --emitDeclarationOnly --declarationDir .cache",
     "bundle": "rollup -c",
     "build": "npm run clean && npm run dts && npm run bundle",
-    "lint": "npx .",
-    "lint:fix": "npx . --fix",
+    "lint": "./bin/cmd.js",
+    "lint:fix": "./bin/cmd.js --fix",
     "test": "npm run build && npm run lint && jest --no-cache"
   },
   "repository": {
