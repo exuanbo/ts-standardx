@@ -26,6 +26,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: yarn && yarn test
+      - run: yarn && npm test
 
       - run: bash <(curl -s https://codecov.io/bash)
