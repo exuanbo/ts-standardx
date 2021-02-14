@@ -1,6 +1,14 @@
-import { Linter, CLI } from 'standard-engine-ts'
+import {
+  Linter as StandardLinter,
+  ProvidedOptions,
+  mergeConfig
+} from 'standard-engine-ts'
 import { opts } from './options'
 
-export const linter = new Linter(opts)
-export const cli = new CLI(opts)
+export class Linter extends StandardLinter {
+  constructor(options?: ProvidedOptions) {
+    super(mergeConfig(opts, options))
+  }
+}
+
 export { opts }
