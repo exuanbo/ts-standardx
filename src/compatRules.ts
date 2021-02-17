@@ -80,6 +80,12 @@ export const compatRules: Linter.RulesRecord = {
     }
   ],
 
+  /**
+   * Resolve `@typescript-eslint/no-floating-promises` error with void operator
+   * @link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L187
+   */
+  'no-void': ['error', { allowAsStatement: true }],
+
   ...Object.fromEntries(
     EQUIVALENT_RULES.map((rule): [[RuleName, 'off'], [string, RuleEntry]] => [
       [rule, 'off'],

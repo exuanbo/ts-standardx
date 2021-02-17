@@ -40,12 +40,15 @@ describe('compatRules', () => {
         expect(isNotContained).toBe(true)
       })
     } else {
-      it(`rules ${ruleName} should be turned off`, () => {
+      it(`rules ${ruleName} should be turned off, or should be changed`, () => {
         const isContained = Object.keys(standardRules).some(
           rule => rule === ruleName
         )
         expect(isContained).toBe(true)
-        expect(ruleOption).toBe('off')
+        expect(
+          ruleOption === 'off' ||
+            ruleOption !== standardRules[ruleName as keyof typeof standardRules]
+        ).toBe(true)
       })
     }
   })
