@@ -44,25 +44,25 @@ export const compatRules: Linter.RulesRecord = {
   '@typescript-eslint/dot-notation': 'error',
 
   /**
-   * The original rule is turned off by `@typescript-eslint/eslint-recommended`
+   * `no-dupe-class-members` is turned off by `@typescript-eslint/eslint-recommended`
    * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts#L15
    */
   '@typescript-eslint/no-dupe-class-members': 'error',
 
   /**
-   * Extend `import/no-duplicates` from eslint-config-standard
+   * Extend `import/no-duplicates` from `eslint-config-standard`
    * @link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L229
    */
   '@typescript-eslint/no-duplicate-imports': 'error',
 
   /**
-   * The original eslint rule is turned off by `@typescript-eslint/eslint-recommended`
+   * `no-redeclare` is turned off by `@typescript-eslint/eslint-recommended`
    * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts#L21
    */
   '@typescript-eslint/no-redeclare': 'error',
 
   /**
-   * Add @typescript-eslint specific options
+   * Add `@typescript-eslint` specific options
    * @link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L180
    */
   'no-use-before-define': 'off',
