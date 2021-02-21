@@ -14,21 +14,12 @@ const PRETTIER_STANDARD = {
 }
 
 const eslintrc: Linter.BaseConfig = {
-  extends: [
-    'standard',
-    'standard-jsx',
-    'plugin:prettier/recommended',
-    'prettier/react',
-    'prettier/standard'
-  ],
+  extends: ['standard', 'standard-jsx', 'plugin:prettier/recommended'],
   overrides: isModuleAvailable('typescript')
     ? [
         {
           files: ['**/*.ts', '**/*.tsx'],
-          extends: [
-            'plugin:@typescript-eslint/recommended',
-            'prettier/@typescript-eslint'
-          ],
+          extends: ['plugin:@typescript-eslint/recommended'],
           parser: '@typescript-eslint/parser',
           parserOptions: {
             project: './tsconfig.json'
@@ -40,7 +31,6 @@ const eslintrc: Linter.BaseConfig = {
         }
       ]
     : undefined,
-  plugins: ['prettier'],
   rules: {
     'prettier/prettier': ['error', PRETTIER_STANDARD]
   }
