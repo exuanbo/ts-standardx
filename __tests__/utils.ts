@@ -4,8 +4,7 @@ export const typescriptRules = typescriptEslint.rules
 export const recommendedTypescriptRules =
   typescriptEslint.configs.recommended.rules
 
-export const prettierRules = require('eslint-config-prettier/@typescript-eslint')
-  .rules
+export const prettierRules = require('eslint-config-prettier').rules
 
 export const isTypescriptRule = (ruleName: string): boolean =>
   ruleName.startsWith('@typescript-eslint/')
