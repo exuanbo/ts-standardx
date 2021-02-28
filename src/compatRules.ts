@@ -75,7 +75,6 @@ export const compatRules: Linter.RulesRecord = {
       functions: false,
       classes: false,
       variables: false,
-      enums: false,
       ignoreTypeReferences: true
     }
   ],
