@@ -1,11 +1,12 @@
 import { rules as standardRules } from 'eslint-config-standard/eslintrc.json'
+import { compatRules } from '../src/compatRules'
 import {
   typescriptRules,
   recommendedTypescriptRules,
+  typescriptEslintRecommended,
   prettierRules,
   isTypescriptRule
 } from './utils'
-import { compatRules } from '../src/compatRules'
 
 const EXCEPTION = ['no-unused-vars']
 
@@ -40,7 +41,14 @@ describe('compatRules', () => {
         expect(isNotContained).toBe(true)
       })
     } else {
-      it(`rules ${ruleName} should be turned off, or should be changed`, () => {
+      it(`eslint rule ${ruleName} should not be in @typescript-eslint/eslint-recommended`, () => {
+        const isContained = Object.keys(typescriptEslintRecommended).some(
+          rule => rule === ruleName
+        )
+        expect(isContained).toBe(false)
+      })
+
+      it(`eslint rule ${ruleName} should be turned off, or should be changed`, () => {
         const isContained = Object.keys(standardRules).some(
           rule => rule === ruleName
         )
