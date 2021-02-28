@@ -3,9 +3,10 @@ import { compatRules } from '../src/compatRules'
 import {
   typescriptRules,
   recommendedTypescriptRules,
-  typescriptEslintRecommended,
-  prettierRules,
-  isTypescriptRule
+  typescriptEslintRecommendedRules,
+  eslintConfigPrettierRules,
+  isTypescriptRule,
+  isRuleContained
 } from './utils'
 
 const EXCEPTION = ['no-unused-vars']
@@ -18,41 +19,30 @@ describe('compatRules', () => {
     if (isTypescriptRule(ruleName)) {
       it(`rule ${ruleName} should be in @typescript-eslint`, () => {
         const actualRuleName = getActualRuleName(ruleName)
-        const isContained = Object.keys(typescriptRules).some(
-          rule => rule === actualRuleName
-        )
-        expect(isContained).toBe(true)
+        expect(isRuleContained(actualRuleName, typescriptRules)).toBe(true)
       })
 
       const actualRuleName = getActualRuleName(ruleName)
       if (!EXCEPTION.some(exceptionRule => exceptionRule === actualRuleName)) {
         it(`rule ${ruleName} should not be in @typescript-eslint/recommended`, () => {
-          const isNotContained = Object.keys(recommendedTypescriptRules).every(
-            rule => rule !== ruleName
+          expect(isRuleContained(ruleName, recommendedTypescriptRules)).toBe(
+            false
           )
-          expect(isNotContained).toBe(true)
         })
       }
 
-      it(`rule ${ruleName} should not be in prettier/@typescript-eslint`, () => {
-        const isNotContained = Object.keys(prettierRules).every(
-          rule => rule !== ruleName
-        )
-        expect(isNotContained).toBe(true)
+      it(`rule ${ruleName} should not be in eslint-config-prettier`, () => {
+        expect(isRuleContained(ruleName, eslintConfigPrettierRules)).toBe(false)
       })
     } else {
       it(`eslint rule ${ruleName} should not be in @typescript-eslint/eslint-recommended`, () => {
-        const isContained = Object.keys(typescriptEslintRecommended).some(
-          rule => rule === ruleName
-        )
-        expect(isContained).toBe(false)
+        expect(
+          isRuleContained(ruleName, typescriptEslintRecommendedRules)
+        ).toBe(false)
       })
 
       it(`eslint rule ${ruleName} should be turned off, or should be changed`, () => {
-        const isContained = Object.keys(standardRules).some(
-          rule => rule === ruleName
-        )
-        expect(isContained).toBe(true)
+        expect(isRuleContained(ruleName, standardRules)).toBe(true)
         expect(
           ruleOption === 'off' ||
             ruleOption !== standardRules[ruleName as keyof typeof standardRules]

@@ -1,11 +1,12 @@
+import { rules } from '../src/rules'
+import { compatRules } from '../src/compatRules'
 import {
   typescriptRules,
   recommendedTypescriptRules,
-  prettierRules,
-  isTypescriptRule
+  eslintConfigPrettierRules,
+  isTypescriptRule,
+  isRuleContained
 } from './utils'
-import { rules } from '../src/rules'
-import { compatRules } from '../src/compatRules'
 
 describe('rules', () => {
   Object.entries(rules).forEach(([ruleName, ruleOption]) => {
@@ -15,16 +16,11 @@ describe('rules', () => {
 
     it(`rule ${ruleName} should be in @typescript-eslint`, () => {
       const actualRuleName = ruleName.replace(/^@typescript-eslint\//, '')
-      const isContained = Object.keys(typescriptRules).some(
-        rule => rule === actualRuleName
-      )
-      expect(isContained).toBe(true)
+      expect(isRuleContained(actualRuleName, typescriptRules)).toBe(true)
     })
 
     it(`rule ${ruleName} should not be in @typescript-eslint/recommended, or should be changed`, () => {
-      const isContained = Object.keys(recommendedTypescriptRules).some(
-        rule => rule === ruleName
-      )
+      const isContained = isRuleContained(ruleName, recommendedTypescriptRules)
       if (isContained) {
         expect(ruleOption).not.toBe(recommendedTypescriptRules[ruleName])
         return
@@ -33,17 +29,11 @@ describe('rules', () => {
     })
 
     it(`rule ${ruleName} should not be in prettier/@typescript-eslint`, () => {
-      const isContained = Object.keys(prettierRules).some(
-        rule => rule === ruleName
-      )
-      expect(isContained).toBe(false)
+      expect(isRuleContained(ruleName, eslintConfigPrettierRules)).toBe(false)
     })
 
     it(`rule ${ruleName} should not be in compatRules`, () => {
-      const isContained = Object.keys(compatRules).some(
-        rule => rule === ruleName
-      )
-      expect(isContained).toBe(false)
+      expect(isRuleContained(ruleName, compatRules)).toBe(false)
     })
   })
 })
