@@ -34,6 +34,7 @@ export const rules: Partial<Linter.RulesRecord> = {
     }
   ],
   '@typescript-eslint/no-invalid-void-type': 'error',
+  '@typescript-eslint/no-non-null-assertion': 'off',
   '@typescript-eslint/no-this-alias': ['error', { allowDestructuring: true }],
   '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
   '@typescript-eslint/prefer-function-type': 'error',
