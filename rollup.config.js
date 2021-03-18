@@ -9,7 +9,6 @@ export default [
   {
     external,
     input: 'src/index.ts',
-    plugins,
     output: [
       {
         file: pkg.main,
@@ -19,17 +18,18 @@ export default [
         file: pkg.module,
         format: 'es'
       }
-    ]
+    ],
+    plugins
   },
   {
     external,
     input: 'src/eslintrc.ts',
-    plugins,
     output: {
       file: '.eslintrc.js',
       format: 'cjs',
       exports: 'auto'
-    }
+    },
+    plugins
   },
   {
     input: '.cache/src/index.d.ts',
