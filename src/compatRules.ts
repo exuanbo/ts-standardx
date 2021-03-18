@@ -2,7 +2,6 @@ import { Linter } from 'eslint'
 import { rules } from 'eslint-config-standard/eslintrc.json'
 
 type RuleName = keyof typeof rules
-type RuleOption = typeof rules[RuleName]
 
 const EQUIVALENT_RULES: RuleName[] = [
   'lines-between-class-members',
@@ -86,10 +85,7 @@ export const compatRules: Linter.RulesRecord = {
   'no-void': ['error', { allowAsStatement: true }],
 
   ...Object.fromEntries(
-    EQUIVALENT_RULES.map((rule): [
-      [RuleName, 'off'],
-      [`@typescript-eslint/${RuleName}`, RuleOption]
-    ] => [
+    EQUIVALENT_RULES.map(rule => [
       [rule, 'off'],
       [`@typescript-eslint/${rule}` as const, rules[rule]]
     ]).flat()
