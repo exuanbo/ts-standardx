@@ -1,10 +1,10 @@
 import { rules as standardRules } from 'eslint-config-standard/eslintrc.json'
+import { rules as prettierRules } from 'eslint-config-prettier'
 import { compatRules } from '../src/compatRules'
 import {
   typescriptRules,
   recommendedTypescriptRules,
-  typescriptEslintRecommendedRules,
-  eslintConfigPrettierRules,
+  typescriptESLintRecommendedRules,
   isTypescriptRule,
   isRuleContained
 } from './utils'
@@ -32,12 +32,12 @@ describe('compatRules', () => {
       }
 
       it(`rule ${ruleName} should not be in eslint-config-prettier`, () => {
-        expect(isRuleContained(ruleName, eslintConfigPrettierRules)).toBe(false)
+        expect(isRuleContained(ruleName, prettierRules)).toBe(false)
       })
     } else {
       it(`eslint rule ${ruleName} should not be in @typescript-eslint/eslint-recommended`, () => {
         expect(
-          isRuleContained(ruleName, typescriptEslintRecommendedRules)
+          isRuleContained(ruleName, typescriptESLintRecommendedRules)
         ).toBe(false)
       })
 

@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const typescriptEslint = require('@typescript-eslint/eslint-plugin')
-export const typescriptRules = typescriptEslint.rules
-export const recommendedTypescriptRules =
-  typescriptEslint.configs.recommended.rules
-export const typescriptEslintRecommendedRules =
-  typescriptEslint.configs['eslint-recommended'].overrides[0].rules
+import { configs, rules } from '@typescript-eslint/eslint-plugin'
 
-export const eslintConfigPrettierRules = require('eslint-config-prettier').rules
+export const typescriptRules = rules
+export const recommendedTypescriptRules = configs.recommended.rules!
+export const typescriptESLintRecommendedRules = configs['eslint-recommended']
+  .overrides![0].rules!
 
 export const isTypescriptRule = (ruleName: string): boolean =>
   ruleName.startsWith('@typescript-eslint/')
