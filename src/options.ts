@@ -1,5 +1,5 @@
 import path from 'path'
-import eslint from 'eslint'
+import { ESLint } from 'eslint'
 import { ProvidedOptions } from 'standard-engine-ts'
 import {
   name,
@@ -18,7 +18,7 @@ export const options: ProvidedOptions = {
   tagline: description,
   bugs: bugs.url,
   homepage: homepage,
-  eslint,
+  ESLint,
   extensions: ['.ts', '.tsx'],
   configFile: path.join(__dirname, '../.eslintrc.js')
 }
