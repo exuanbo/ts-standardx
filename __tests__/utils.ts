@@ -2,8 +2,8 @@ import { configs, rules } from '@typescript-eslint/eslint-plugin'
 
 export const typescriptRules = rules
 export const recommendedTypescriptRules = configs.recommended.rules!
-export const typescriptESLintRecommendedRules = configs['eslint-recommended']
-  .overrides![0].rules!
+export const typescriptESLintRecommendedRules =
+  configs['eslint-recommended'].overrides![0].rules!
 
 export const isTypescriptRule = (ruleName: string): boolean =>
   ruleName.startsWith('@typescript-eslint/')
