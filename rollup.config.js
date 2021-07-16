@@ -3,7 +3,6 @@ import dts from 'rollup-plugin-dts'
 import pkg from './package.json'
 
 const external = ['path', ...Object.keys(pkg.dependencies), /.*\.json/]
-const plugins = [typescript()]
 
 export default [
   {
@@ -19,7 +18,7 @@ export default [
         format: 'es'
       }
     ],
-    plugins
+    plugins: [typescript()]
   },
   {
     external,
@@ -29,7 +28,7 @@ export default [
       format: 'cjs',
       exports: 'auto'
     },
-    plugins
+    plugins: [typescript()]
   },
   {
     input: '.cache/src/index.d.ts',
