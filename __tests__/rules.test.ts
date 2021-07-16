@@ -1,12 +1,14 @@
-import { rules as prettierRules } from 'eslint-config-prettier'
+import eslintConfigPrettier from 'eslint-config-prettier'
 import { rules } from '../src/rules'
 import { compatRules } from '../src/compatRules'
 import {
   typescriptRules,
-  recommendedTypescriptRules,
+  typescriptRecommendedRules,
   isTypescriptRule,
   isRuleContained
 } from './utils'
+
+const prettierRules = eslintConfigPrettier.rules
 
 describe('rules', () => {
   Object.entries(rules).forEach(([ruleName, ruleOption]) => {
@@ -20,9 +22,9 @@ describe('rules', () => {
     })
 
     it(`rule ${ruleName} should not be in @typescript-eslint/recommended, or should be changed`, () => {
-      const isContained = isRuleContained(ruleName, recommendedTypescriptRules)
+      const isContained = isRuleContained(ruleName, typescriptRecommendedRules)
       if (isContained) {
-        expect(ruleOption).not.toBe(recommendedTypescriptRules[ruleName])
+        expect(ruleOption).not.toBe(typescriptRecommendedRules[ruleName])
         return
       }
       expect(isContained).toBe(false)

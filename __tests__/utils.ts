@@ -1,7 +1,7 @@
 import { configs, rules } from '@typescript-eslint/eslint-plugin'
 
-export const typescriptRules = rules
-export const recommendedTypescriptRules = configs.recommended.rules!
+export { rules as typescriptRules }
+export const typescriptRecommendedRules = configs.recommended.rules!
 export const typescriptESLintRecommendedRules =
   configs['eslint-recommended'].overrides![0].rules!
 
