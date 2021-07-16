@@ -16,12 +16,12 @@ const EQUIVALENT_RULES: RuleName[] = [
 export const compatRules: Linter.RulesRecord = {
   /**
    * Use `@typescript-eslint/naming-convention` instead
-   * @link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L39
+   *
+   * {@link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L39}
    */
   camelcase: 'off',
-  /**
-   * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md
-   */
+
+  /** {@link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md} */
   '@typescript-eslint/naming-convention': [
     'error',
     {
@@ -34,40 +34,43 @@ export const compatRules: Linter.RulesRecord = {
 
   /**
    * Error when using the same option from `eslint-config-standard`
-   * @link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L58
+   *
+   * {@link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L58}
    */
   'dot-notation': 'off',
-  /**
-   * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/dot-notation.md
-   */
+
+  /** {@link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/dot-notation.md} */
   '@typescript-eslint/dot-notation': 'error',
 
   /**
    * `no-dupe-class-members` is turned off by `@typescript-eslint/eslint-recommended`
-   * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts#L15
+   *
+   * {@link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts#L15}
    */
   '@typescript-eslint/no-dupe-class-members': 'error',
 
   /**
    * Extend `import/no-duplicates` from `eslint-config-standard`
-   * @link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L229
+   *
+   * {@link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L229}
    */
   '@typescript-eslint/no-duplicate-imports': 'error',
 
   /**
    * `no-redeclare` is turned off by `@typescript-eslint/eslint-recommended`
-   * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts#L21
+   *
+   * {@link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts#L21}
    */
   '@typescript-eslint/no-redeclare': 'error',
 
   /**
    * Add `@typescript-eslint` specific options
-   * @link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L180
+   *
+   * {@link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L180}
    */
   'no-use-before-define': 'off',
-  /**
-   * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md
-   */
+
+  /** {@link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md} */
   '@typescript-eslint/no-use-before-define': [
     'error',
     {
@@ -80,7 +83,8 @@ export const compatRules: Linter.RulesRecord = {
 
   /**
    * Resolve `@typescript-eslint/no-floating-promises` error with void operator
-   * @link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L187
+   *
+   * {@link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L187}
    */
   'no-void': ['error', { allowAsStatement: true }],
 
