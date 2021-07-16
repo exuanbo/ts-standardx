@@ -1,4 +1,4 @@
-import { Linter } from 'eslint'
+import type { Linter } from 'eslint'
 import { rules } from 'eslint-config-standard/eslintrc.json'
 
 type RuleName = keyof typeof rules

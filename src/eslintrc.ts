@@ -1,4 +1,4 @@
-import { Linter } from 'eslint'
+import type { Linter } from 'eslint'
 import { compatRules } from './compatRules'
 import { rules } from './rules'
 import { isModuleAvailable } from './utils'

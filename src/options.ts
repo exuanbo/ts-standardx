@@ -1,6 +1,6 @@
 import path from 'path'
 import { ESLint } from 'eslint'
-import { ProvidedOptions } from 'standard-engine-ts'
+import type { ProvidedOptions } from 'standard-engine-ts'
 import {
   name,
   version,

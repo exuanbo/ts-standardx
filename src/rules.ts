@@ -1,4 +1,4 @@
-import { Linter } from 'eslint'
+import type { Linter } from 'eslint'
 
 /**
  * Picked from `eslint-config-standard-with-typescript`
