@@ -61,7 +61,7 @@ export const compatRules: Linter.RulesRecord = {
    *
    * {@link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts#L21}
    */
-  '@typescript-eslint/no-redeclare': 'error',
+  '@typescript-eslint/no-redeclare': ['error', { builtinGlobals: false }],
 
   /**
    * Add `@typescript-eslint` specific options
