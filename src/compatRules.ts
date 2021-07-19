@@ -96,3 +96,13 @@ export const compatRules: Linter.RulesRecord = {
     ]).flat()
   )
 }
+
+export const prettierCompatRules: Linter.RulesRecord = {
+  'arrow-body-style': 'off',
+  'prefer-arrow-callback': 'off',
+  quotes: [
+    'error',
+    'single',
+    { avoidEscape: true, allowTemplateLiterals: false }
+  ]
+}
