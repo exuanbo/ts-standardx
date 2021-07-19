@@ -184,23 +184,26 @@ This package includes:
 ### eslintrc.ts
 
 ```ts
-import { Linter } from 'eslint'
-import { compatRules } from './compatRules'
+import type { Linter } from 'eslint'
 import { rules } from './rules'
+import { compatRules, prettierCompatRules } from './compatRules'
 import { isModuleAvailable } from './utils'
 
 const PRETTIER_STANDARD = {
-  arrowParens: 'avoid',
-  bracketSpacing: true,
-  jsxBracketSameLine: true,
   semi: false,
   singleQuote: true,
-  tabWidth: 2,
-  trailingComma: 'none'
+  trailingComma: 'none',
+  jsxBracketSameLine: true,
+  arrowParens: 'avoid'
 }
 
 const eslintrc: Linter.BaseConfig = {
-  extends: ['standard', 'standard-jsx', 'plugin:prettier/recommended'],
+  extends: ['standard', 'standard-jsx', 'prettier'],
+  plugins: ['prettier'],
+  rules: {
+    'prettier/prettier': ['error', PRETTIER_STANDARD],
+    ...prettierCompatRules
+  },
   overrides: isModuleAvailable('typescript')
     ? [
         {
@@ -211,15 +214,12 @@ const eslintrc: Linter.BaseConfig = {
             project: './tsconfig.json'
           },
           rules: {
-            ...compatRules,
-            ...rules
+            ...rules,
+            ...compatRules
           }
         }
       ]
-    : undefined,
-  rules: {
-    'prettier/prettier': ['error', PRETTIER_STANDARD]
-  }
+    : undefined
 }
 
 export default eslintrc
