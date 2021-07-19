@@ -4,13 +4,11 @@ import { rules } from './rules'
 import { isModuleAvailable } from './utils'
 
 const PRETTIER_STANDARD = {
-  arrowParens: 'avoid',
-  bracketSpacing: true,
-  jsxBracketSameLine: true,
   semi: false,
   singleQuote: true,
-  tabWidth: 2,
-  trailingComma: 'none'
+  trailingComma: 'none',
+  jsxBracketSameLine: true,
+  arrowParens: 'avoid'
 }
 
 const eslintrc: Linter.BaseConfig = {
@@ -32,7 +30,12 @@ const eslintrc: Linter.BaseConfig = {
       ]
     : undefined,
   rules: {
-    'prettier/prettier': ['error', PRETTIER_STANDARD]
+    'prettier/prettier': ['error', PRETTIER_STANDARD],
+    quotes: [
+      'error',
+      'single',
+      { avoidEscape: true, allowTemplateLiterals: false }
+    ]
   }
 }
 

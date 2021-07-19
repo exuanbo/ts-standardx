@@ -30,8 +30,10 @@ describe('compatRules', () => {
         })
       }
 
-      it(`rule ${ruleName} should not be in eslint-config-prettier`, () => {
-        expect(isRuleContained(ruleName, prettierRules)).toBe(false)
+      it(`rule ${ruleName} should not be in eslint-config-prettier, or should be changed`, () => {
+        if (isRuleContained(ruleName, prettierRules)) {
+          expect(ruleOption !== prettierRules[ruleName])
+        }
       })
     } else {
       it(`eslint rule ${ruleName} should not be in @typescript-eslint/eslint-recommended`, () => {

@@ -88,6 +88,17 @@ export const compatRules: Linter.RulesRecord = {
    */
   'no-void': ['error', { allowAsStatement: true }],
 
+  /**
+   * Turned off by `eslint-config-prettier`
+   *
+   * {@link https://github.com/prettier/eslint-config-prettier/blob/main/index.js#L18}
+   */
+  '@typescript-eslint/quotes': [
+    'error',
+    'single',
+    { avoidEscape: true, allowTemplateLiterals: false }
+  ],
+
   ...Object.fromEntries(
     EQUIVALENT_RULES.map(rule => [
       [rule, 'off'],
