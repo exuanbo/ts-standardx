@@ -10,7 +10,8 @@ const EQUIVALENT_RULES: RuleName[] = [
   'no-throw-literal',
   'no-unused-expressions',
   'no-unused-vars',
-  'no-useless-constructor'
+  'no-useless-constructor',
+  'quotes'
 ]
 
 export const compatRules: Linter.RulesRecord = {
@@ -87,17 +88,6 @@ export const compatRules: Linter.RulesRecord = {
    * {@link https://github.com/standard/eslint-config-standard/blob/master/eslintrc.json#L187}
    */
   'no-void': ['error', { allowAsStatement: true }],
-
-  /**
-   * Turned off by `eslint-config-prettier`
-   *
-   * {@link https://github.com/prettier/eslint-config-prettier/blob/main/index.js#L18}
-   */
-  '@typescript-eslint/quotes': [
-    'error',
-    'single',
-    { avoidEscape: true, allowTemplateLiterals: false }
-  ],
 
   ...Object.fromEntries(
     EQUIVALENT_RULES.map(rule => [
