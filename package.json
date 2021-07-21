@@ -40,8 +40,8 @@
   },
   "homepage": "https://github.com/exuanbo/ts-standardx#readme",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "4.28.3",
-    "@typescript-eslint/parser": "4.28.3",
+    "@typescript-eslint/eslint-plugin": "4.28.4",
+    "@typescript-eslint/parser": "4.28.4",
     "eslint": "7.31.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-config-standard": "16.0.3",
@@ -57,10 +57,10 @@
   "devDependencies": {
     "@rollup/plugin-typescript": "8.2.3",
     "@types/jest": "26.0.24",
-    "@types/node": "16.3.3",
+    "@types/node": "16.4.0",
     "jest": "27.0.6",
     "rimraf": "3.0.2",
-    "rollup": "2.53.2",
+    "rollup": "2.53.3",
     "rollup-plugin-dts": "3.0.2",
     "ts-jest": "27.0.3",
     "tslib": "2.3.0",
