@@ -1,20 +1,18 @@
 import { rules as standardRules } from 'eslint-config-standard/eslintrc.json'
-import eslintConfigPrettier from 'eslint-config-prettier'
+import { rules as prettierRules } from 'eslint-config-prettier'
 import { compatRules } from '../src/compatRules'
+import { isTypescriptRule } from '../src/utils'
 import {
   typescriptRules,
   typescriptRecommendedRules,
   typescriptESLintRecommendedRules,
-  isTypescriptRule,
   isRuleContained
 } from './utils'
-
-const prettierRules = eslintConfigPrettier.rules
 
 const EXCEPTION = ['no-unused-vars']
 
 describe('compatRules', () => {
-  Object.entries(compatRules).forEach(([ruleName, ruleOption]) => {
+  Object.entries(compatRules).forEach(([ruleName, ruleEntry]) => {
     if (isTypescriptRule(ruleName)) {
       const actualRuleName = ruleName.replace(/^@typescript-eslint\//, '')
 
@@ -32,7 +30,7 @@ describe('compatRules', () => {
 
       it(`rule ${ruleName} should not be in eslint-config-prettier, or should be changed`, () => {
         if (isRuleContained(ruleName, prettierRules)) {
-          expect(ruleOption !== prettierRules[ruleName])
+          expect(ruleEntry !== prettierRules[ruleName])
         }
       })
     } else {
@@ -45,8 +43,8 @@ describe('compatRules', () => {
       it(`eslint rule ${ruleName} should be turned off, or should be changed`, () => {
         expect(isRuleContained(ruleName, standardRules)).toBe(true)
         expect(
-          ruleOption === 'off' ||
-            ruleOption !== standardRules[ruleName as keyof typeof standardRules]
+          ruleEntry === 'off' ||
+            ruleEntry !== standardRules[ruleName as keyof typeof standardRules]
         ).toBe(true)
       })
     }

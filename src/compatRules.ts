@@ -1,9 +1,26 @@
 import type { Linter } from 'eslint'
-import { rules } from 'eslint-config-standard/eslintrc.json'
+import { rules as standardRules } from 'eslint-config-standard/eslintrc.json'
+import { rules as prettierRules } from 'eslint-config-prettier'
+import { isTypescriptRule } from '../src/utils'
 
-type RuleName = keyof typeof rules
+export const prettierCompatRules: Linter.RulesRecord = {
+  'arrow-body-style': 'off',
+  'prefer-arrow-callback': 'off',
+  quotes: [
+    'error',
+    'single',
+    { avoidEscape: true, allowTemplateLiterals: false }
+  ]
+}
 
-const EQUIVALENT_RULES: RuleName[] = [
+export const prettierTypescriptCompatRules: Linter.RulesRecord =
+  Object.fromEntries(
+    Object.entries(prettierRules).filter(
+      ([ruleName, ruleEntry]) => isTypescriptRule(ruleName) && ruleEntry !== 0
+    )
+  )
+
+const standardEquivalentRuleNames = [
   'lines-between-class-members',
   'no-implied-eval',
   'no-loss-of-precision',
@@ -12,7 +29,16 @@ const EQUIVALENT_RULES: RuleName[] = [
   'no-unused-vars',
   'no-useless-constructor',
   'quotes'
-]
+] as const
+
+const standardEquivalentRules: Linter.RulesRecord = Object.fromEntries(
+  standardEquivalentRuleNames
+    .map(ruleName => [
+      [ruleName, 'off'],
+      [`@typescript-eslint/${ruleName}` as const, standardRules[ruleName]]
+    ])
+    .flat()
+)
 
 export const compatRules: Linter.RulesRecord = {
   /**
@@ -89,20 +115,5 @@ export const compatRules: Linter.RulesRecord = {
    */
   'no-void': ['error', { allowAsStatement: true }],
 
-  ...Object.fromEntries(
-    EQUIVALENT_RULES.map(rule => [
-      [rule, 'off'],
-      [`@typescript-eslint/${rule}` as const, rules[rule]]
-    ]).flat()
-  )
-}
-
-export const prettierCompatRules: Linter.RulesRecord = {
-  'arrow-body-style': 'off',
-  'prefer-arrow-callback': 'off',
-  quotes: [
-    'error',
-    'single',
-    { avoidEscape: true, allowTemplateLiterals: false }
-  ]
+  ...standardEquivalentRules
 }
