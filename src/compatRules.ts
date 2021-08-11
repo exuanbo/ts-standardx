@@ -52,10 +52,10 @@ export const compatRules: Linter.RulesRecord = {
   '@typescript-eslint/naming-convention': [
     'error',
     {
+      selector: 'variableLike',
       format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
       leadingUnderscore: 'allowSingleOrDouble',
-      trailingUnderscore: 'allowSingleOrDouble',
-      selector: 'variable'
+      trailingUnderscore: 'allowSingleOrDouble'
     }
   ],
 
