@@ -13,7 +13,7 @@
   },
   "scripts": {
     "clean": "rimraf dist .cache",
-    "dts": "tsc -d --emitDeclarationOnly --declarationDir .cache",
+    "dts": "tsc -p tsconfig.dts.json",
     "bundle": "rollup -c",
     "build": "npm run clean && npm run dts && npm run bundle",
     "lint": "./bin/cmd.js",
