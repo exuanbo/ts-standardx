@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint'
 import { rules } from './rules'
-import { prettierCompatRules, prettierTypescriptCompatRules, compatRules } from './compatRules'
+import { prettierCompatRules, compatRules, prettierTypescriptCompatRules } from './compatRules'
 import { isModuleAvailable } from './utils'
 
 const PRETTIER_STANDARD = {

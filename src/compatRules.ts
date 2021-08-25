@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint'
-import { rules as standardRules } from 'eslint-config-standard/eslintrc.json'
 import { rules as prettierRules } from 'eslint-config-prettier'
+import { rules as standardRules } from 'eslint-config-standard/eslintrc.json'
 import { isTypescriptRule } from '../src/utils'
 
 export const prettierCompatRules: Linter.RulesRecord = {
