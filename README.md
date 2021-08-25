@@ -2,9 +2,9 @@
 
 > Yet another configurable linter for TypeScript and JavaScript.
 
-[![npm](https://img.shields.io/npm/v/ts-standardx)](https://www.npmjs.com/package/ts-standardx)
-[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/exuanbo/ts-standardx/Node.js%20CI/main)](https://github.com/exuanbo/ts-standardx/actions?query=workflow%3A%22Node.js+CI%22)
-[![Codecov branch](https://img.shields.io/codecov/c/gh/exuanbo/ts-standardx/main?token=D9AA8C1ZS2)](https://codecov.io/gh/exuanbo/ts-standardx)
+[![npm](https://img.shields.io/npm/v/ts-standardx.svg)](https://www.npmjs.com/package/ts-standardx)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/exuanbo/ts-standardx/Node.js%20CI/main.svg)](https://github.com/exuanbo/ts-standardx/actions?query=workflow%3A%22Node.js+CI%22)
+[![Codecov branch](https://img.shields.io/codecov/c/gh/exuanbo/ts-standardx/main.svg?token=D9AA8C1ZS2)](https://codecov.io/gh/exuanbo/ts-standardx)
 [![libera manifesto](https://img.shields.io/badge/libera-manifesto-lightgrey.svg)](https://liberamanifesto.com)
 
 ## 🚀 Features
@@ -108,16 +108,16 @@ Misc:
 
 import {
   ProvidedOptions,
-  Linter as Linter$1,
-  CLI as CLI$1
+  Linter as __Linter,
+  CLI as __CLI
 } from 'standard-engine-ts'
 
 declare const options: ProvidedOptions
 
-declare class Linter extends Linter$1 {
+declare class Linter extends __Linter {
   constructor(customOptions?: ProvidedOptions)
 }
-declare class CLI extends CLI$1 {
+declare class CLI extends __CLI {
   constructor(customOptions?: ProvidedOptions)
 }
 
@@ -126,7 +126,7 @@ export { CLI, Linter, options }
 
 ## ⚙️ Configuration
 
-`ts-standardx` uses `.eslintrc.*` from the current working directory. Note that rules for TypeScript need to be placed in `overrides` as example below.
+`ts-standardx` uses `.eslintrc*` from the current working directory. Note that rules for TypeScript need to be placed in `overrides` as example below.
 
 ```js
 // .eslintrc.js
@@ -186,7 +186,7 @@ This package includes:
 ```ts
 import type { Linter } from 'eslint'
 import { rules } from './rules'
-import { compatRules, prettierCompatRules } from './compatRules'
+import { prettierCompatRules, compatRules, prettierTypescriptCompatRules } from './compatRules'
 import { isModuleAvailable } from './utils'
 
 const PRETTIER_STANDARD = {
@@ -215,7 +215,8 @@ const eslintrc: Linter.BaseConfig = {
           },
           rules: {
             ...rules,
-            ...compatRules
+            ...compatRules,
+            ...prettierTypescriptCompatRules
           }
         }
       ]
