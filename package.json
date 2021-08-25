@@ -3,22 +3,24 @@
   "version": "0.8.0-0",
   "description": "Yet another configurable linter for TypeScript and JavaScript.",
   "main": "dist/index.js",
-  "module": "dist/index.es.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./dist/index.mjs",
+    "types": "./dist/index.d.ts"
+  },
   "bin": {
     "ts-standardx": "bin/cmd.js"
   },
-  "directories": {
-    "test": "__tests__"
-  },
   "scripts": {
-    "clean": "rimraf dist .cache",
+    "clean": "rm -rf .cache dist",
     "dts": "tsc -p tsconfig.dts.json",
     "bundle": "rollup -c",
     "build": "npm run clean && npm run dts && npm run bundle",
     "lint": "./bin/cmd.js",
     "lint:fix": "./bin/cmd.js --fix",
-    "test": "npm run build && npm run lint && jest --no-cache"
+    "test": "npm run build && npm run lint && jest"
   },
   "repository": {
     "type": "git",

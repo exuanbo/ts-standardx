@@ -1,8 +1,14 @@
-import typescript from '@rollup/plugin-typescript'
+import __esbuild from 'rollup-plugin-esbuild-transform'
 import dts from 'rollup-plugin-dts'
 import pkg from './package.json'
 
-const external = ['path', ...Object.keys(pkg.dependencies), /.*\.json/]
+const external = ['path', ...Object.keys(pkg.dependencies), /\.json$/]
+
+const esbuild = () =>
+  __esbuild({
+    loader: 'ts',
+    target: 'es2019'
+  })
 
 export default [
   {
@@ -18,7 +24,7 @@ export default [
         format: 'es'
       }
     ],
-    plugins: [typescript()]
+    plugins: [esbuild()]
   },
   {
     external,
@@ -28,7 +34,7 @@ export default [
       format: 'cjs',
       exports: 'auto'
     },
-    plugins: [typescript()]
+    plugins: [esbuild()]
   },
   {
     input: '.cache/src/index.d.ts',
