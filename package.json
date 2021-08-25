@@ -41,6 +41,9 @@
     "url": "https://github.com/exuanbo/ts-standardx/issues"
   },
   "homepage": "https://github.com/exuanbo/ts-standardx#readme",
+  "engines": {
+    "node": ">=12.20.0"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "4.29.3",
     "@typescript-eslint/parser": "4.29.3",
