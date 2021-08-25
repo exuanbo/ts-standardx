@@ -1,14 +1,7 @@
 import path from 'path'
 import { ESLint } from 'eslint'
 import type { ProvidedOptions } from 'standard-engine-ts'
-import {
-  name,
-  version,
-  description,
-  bugs,
-  homepage,
-  dependencies
-} from '../package.json'
+import { name, version, description, bugs, homepage, dependencies } from '../package.json'
 
 const ENGINE = 'standard-engine-ts'
 

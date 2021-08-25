@@ -22,9 +22,7 @@ describe('compatRules', () => {
 
       if (!EXCEPTION.some(exceptionRule => exceptionRule === actualRuleName)) {
         it(`rule ${ruleName} should not be in @typescript-eslint/recommended`, () => {
-          expect(isRuleContained(ruleName, typescriptRecommendedRules)).toBe(
-            false
-          )
+          expect(isRuleContained(ruleName, typescriptRecommendedRules)).toBe(false)
         })
       }
 
@@ -35,16 +33,13 @@ describe('compatRules', () => {
       })
     } else {
       it(`eslint rule ${ruleName} should not be in @typescript-eslint/eslint-recommended`, () => {
-        expect(
-          isRuleContained(ruleName, typescriptESLintRecommendedRules)
-        ).toBe(false)
+        expect(isRuleContained(ruleName, typescriptESLintRecommendedRules)).toBe(false)
       })
 
       it(`eslint rule ${ruleName} should be turned off, or should be changed`, () => {
         expect(isRuleContained(ruleName, standardRules)).toBe(true)
         expect(
-          ruleEntry === 'off' ||
-            ruleEntry !== standardRules[ruleName as keyof typeof standardRules]
+          ruleEntry === 'off' || ruleEntry !== standardRules[ruleName as keyof typeof standardRules]
         ).toBe(true)
       })
     }

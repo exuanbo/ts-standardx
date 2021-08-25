@@ -1,10 +1,6 @@
 import type { Linter } from 'eslint'
 import { rules } from './rules'
-import {
-  prettierCompatRules,
-  prettierTypescriptCompatRules,
-  compatRules
-} from './compatRules'
+import { prettierCompatRules, prettierTypescriptCompatRules, compatRules } from './compatRules'
 import { isModuleAvailable } from './utils'
 
 const PRETTIER_STANDARD = {
@@ -19,8 +15,8 @@ const eslintrc: Linter.BaseConfig = {
   extends: ['standard', 'standard-jsx', 'prettier'],
   plugins: ['prettier'],
   rules: {
-    ...prettierCompatRules,
-    'prettier/prettier': ['error', PRETTIER_STANDARD]
+    'prettier/prettier': ['error', PRETTIER_STANDARD],
+    ...prettierCompatRules
   },
   overrides: isModuleAvailable('typescript')
     ? [
@@ -32,9 +28,9 @@ const eslintrc: Linter.BaseConfig = {
             project: './tsconfig.json'
           },
           rules: {
-            ...prettierTypescriptCompatRules,
+            ...rules,
             ...compatRules,
-            ...rules
+            ...prettierTypescriptCompatRules
           }
         }
       ]

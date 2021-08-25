@@ -15,25 +15,12 @@ export const rules: Linter.RulesRecord = {
     }
   ],
   '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
-  '@typescript-eslint/explicit-function-return-type': [
-    'error',
-    {
-      allowExpressions: true
-    }
-  ],
+  '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
   '@typescript-eslint/method-signature-style': 'error',
   '@typescript-eslint/no-base-to-string': 'error',
   '@typescript-eslint/no-dynamic-delete': 'error',
-  '@typescript-eslint/no-extraneous-class': [
-    'error',
-    { allowWithDecorator: true }
-  ],
-  '@typescript-eslint/no-floating-promises': [
-    'error',
-    {
-      ignoreIIFE: true
-    }
-  ],
+  '@typescript-eslint/no-extraneous-class': ['error', { allowWithDecorator: true }],
+  '@typescript-eslint/no-floating-promises': ['error', { ignoreIIFE: true }],
   '@typescript-eslint/no-invalid-void-type': 'error',
   '@typescript-eslint/no-non-null-assertion': 'off',
   '@typescript-eslint/no-this-alias': ['error', { allowDestructuring: true }],
@@ -42,21 +29,18 @@ export const rules: Linter.RulesRecord = {
   '@typescript-eslint/prefer-includes': 'error',
   '@typescript-eslint/prefer-nullish-coalescing': [
     'error',
-    { ignoreConditionalTests: false, ignoreMixedLogicalExpressions: false }
+    {
+      ignoreConditionalTests: false,
+      ignoreMixedLogicalExpressions: false
+    }
   ],
   '@typescript-eslint/prefer-optional-chain': 'error',
   '@typescript-eslint/prefer-readonly': 'error',
   '@typescript-eslint/prefer-reduce-type-parameter': 'error',
   '@typescript-eslint/prefer-ts-expect-error': 'error',
   '@typescript-eslint/promise-function-async': 'error',
-  '@typescript-eslint/require-array-sort-compare': [
-    'error',
-    { ignoreStringArrays: true }
-  ],
-  '@typescript-eslint/restrict-plus-operands': [
-    'error',
-    { checkCompoundAssignments: true }
-  ],
+  '@typescript-eslint/require-array-sort-compare': ['error', { ignoreStringArrays: true }],
+  '@typescript-eslint/restrict-plus-operands': ['error', { checkCompoundAssignments: true }],
   '@typescript-eslint/return-await': ['error', 'always'],
   '@typescript-eslint/strict-boolean-expressions': [
     'error',
@@ -72,6 +56,10 @@ export const rules: Linter.RulesRecord = {
   ],
   '@typescript-eslint/triple-slash-reference': [
     'error',
-    { lib: 'never', path: 'never', types: 'prefer-import' }
+    {
+      lib: 'never',
+      path: 'never',
+      types: 'prefer-import'
+    }
   ]
 }

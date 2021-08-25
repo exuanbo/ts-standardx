@@ -2,11 +2,7 @@ import { rules as prettierRules } from 'eslint-config-prettier'
 import { rules } from '../src/rules'
 import { compatRules } from '../src/compatRules'
 import { isTypescriptRule } from '../src/utils'
-import {
-  typescriptRules,
-  typescriptRecommendedRules,
-  isRuleContained
-} from './utils'
+import { typescriptRules, typescriptRecommendedRules, isRuleContained } from './utils'
 
 describe('rules', () => {
   Object.entries(rules).forEach(([ruleName, ruleOption]) => {
