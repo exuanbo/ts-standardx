@@ -103,6 +103,10 @@ Misc:
 
 ## ⌨️ API
 
+<details>
+<summary>Check</summary>
+<p>
+
 ```ts
 // index.d.ts
 
@@ -124,9 +128,14 @@ declare class CLI extends __CLI {
 export { CLI, Linter, options }
 ```
 
+</p>
+</details>
+
 ## ⚙️ Configuration
 
-`ts-standardx` uses `.eslintrc*` from the current working directory. Note that rules for TypeScript need to be placed in `overrides` as example below.
+`ts-standardx` uses `.eslintrc*` from the current working directory.
+
+Note that rules for TypeScript need to be placed in `overrides` as example below.
 
 ```js
 // .eslintrc.js
@@ -143,6 +152,26 @@ module.exports = {
 }
 ```
 
+`.prettierrc*` will be read from the current directory, but these options
+
+- `semi`
+- `singleQuote`
+- `trailingComma`
+- `jsxBracketSameLine`
+- `arrowParens`
+
+will not take effect. The only way to change them is setting in `.eslintrc*` as example below.
+
+```js
+// .eslintrc.js
+
+module.exports = {
+  rules: {
+    'prettier/prettier': ['error', { ...options }]
+  }
+}
+```
+
 ### Editor extension
 
 Add the [default config](#eslintrcts) to `extends` to use the official ESLint extension.
@@ -155,7 +184,8 @@ module.exports = {
 }
 ```
 
-<details><summary>But wait a second...</summary>
+<details>
+<summary>But wait a second...</summary>
 <p>
 
 "So why can't I use `npx eslint .` directly?" Yes, you can :p
@@ -182,6 +212,10 @@ This package includes:
 - [standard-engine-ts](https://github.com/exuanbo/standard-engine-ts#readme)
 
 ### eslintrc.ts
+
+<details>
+<summary>Check</summary>
+<p>
 
 ```ts
 import type { Linter } from 'eslint'
@@ -226,6 +260,9 @@ const eslintrc: Linter.BaseConfig = {
 export default eslintrc
 ```
 
+</p>
+</details>
+
 ## 🤔 Why
 
 Todo
@@ -233,7 +270,7 @@ Todo
 ## 📃 Todo
 
 - [ ] Document
-- [ ] Allow specify `parserOptions: { project: './tsconfig.json' }`
+- [ ] Allow specify `parserOptions.project`
 - [ ] Better integrate with Prettier
 
 ## License
