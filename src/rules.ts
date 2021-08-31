@@ -47,11 +47,7 @@ export const rules: Linter.RulesRecord = {
     {
       allowString: false,
       allowNumber: false,
-      allowNullableObject: false,
-      allowNullableBoolean: false,
-      allowNullableString: false,
-      allowNullableNumber: false,
-      allowAny: false
+      allowNullableObject: false
     }
   ],
   '@typescript-eslint/triple-slash-reference': [
