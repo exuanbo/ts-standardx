@@ -10,7 +10,7 @@ export const options: ProvidedOptions = {
   version: `${version} (${ENGINE} v${dependencies[ENGINE]})`,
   tagline: description,
   bugs: bugs.url,
-  homepage: homepage,
+  homepage,
   ESLint,
   extensions: ['.ts', '.tsx'],
   configFile: path.join(__dirname, '../.eslintrc.js')
