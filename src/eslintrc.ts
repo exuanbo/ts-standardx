@@ -7,7 +7,7 @@ const PRETTIER_STANDARD = {
   semi: false,
   singleQuote: true,
   trailingComma: 'none',
-  jsxBracketSameLine: true,
+  bracketSameLine: true,
   arrowParens: 'avoid'
 }
 
