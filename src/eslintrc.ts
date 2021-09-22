@@ -23,10 +23,6 @@ const eslintrc: Linter.BaseConfig = {
         {
           files: ['**/*.ts', '**/*.tsx'],
           extends: ['plugin:@typescript-eslint/recommended'],
-          parser: '@typescript-eslint/parser',
-          parserOptions: {
-            project: './tsconfig.json'
-          },
           rules: {
             ...rules,
             ...compatRules,
