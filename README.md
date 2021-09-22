@@ -157,7 +157,7 @@ module.exports = {
 - `semi`
 - `singleQuote`
 - `trailingComma`
-- `jsxBracketSameLine`
+- `bracketSameLine`
 - `arrowParens`
 
 will not take effect. The only way to change them is setting in `.eslintrc*` as example below.
@@ -243,10 +243,6 @@ const eslintrc: Linter.BaseConfig = {
         {
           files: ['**/*.ts', '**/*.tsx'],
           extends: ['plugin:@typescript-eslint/recommended'],
-          parser: '@typescript-eslint/parser',
-          parserOptions: {
-            project: './tsconfig.json'
-          },
           rules: {
             ...rules,
             ...compatRules,
@@ -271,7 +267,7 @@ Todo
 
 - [ ] Document
 - [ ] Allow specify `parserOptions.project`
-- [ ] Better integrate with Prettier
+- [ ] Remove `eslint-config-standard-jsx`
 
 ## License
 
