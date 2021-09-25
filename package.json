@@ -54,7 +54,7 @@
     "eslint-plugin-promise": "5.1.0",
     "eslint-plugin-react": "7.26.0",
     "prettier": "2.4.1",
-    "standard-engine-ts": "0.8.0"
+    "standard-engine-ts": "0.8.1-0"
   },
   "devDependencies": {
     "@types/jest": "27.0.2",
