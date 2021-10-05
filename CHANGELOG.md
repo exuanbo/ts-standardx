@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.8.4](https://github.com/exuanbo/ts-standardx/compare/v0.8.3...v0.8.4) (2021-10-05)
+
+### Chores
+
+- Bump dependency versions.
+
 ## [0.8.3](https://github.com/exuanbo/ts-standardx/compare/v0.8.2...v0.8.3) (2021-09-27)
 
 ### Chores
