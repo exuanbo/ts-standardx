@@ -1,6 +1,6 @@
 {
   "name": "ts-standardx",
-  "version": "0.8.4",
+  "version": "0.9.0-0",
   "description": "Yet another configurable linter for TypeScript and JavaScript.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
