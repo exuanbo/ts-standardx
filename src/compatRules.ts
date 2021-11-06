@@ -35,7 +35,6 @@ export const prettierTypescriptCompatRules: Linter.RulesRecord = Object.fromEntr
 const standardEquivalentRuleNames = [
   'lines-between-class-members',
   'no-implied-eval',
-  'no-loss-of-precision',
   'no-throw-literal',
   'no-unused-expressions',
   'no-unused-vars',
